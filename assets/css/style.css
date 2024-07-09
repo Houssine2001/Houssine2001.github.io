@@ -59,6 +59,8 @@ html{
     border-radius: 10px;
     cursor: pointer;
     transition: .4s;
+    text-decoration: none; /* Enlever le soulignement */
+
 }
 .btn>i{
     margin-left: 10px;
@@ -130,6 +132,8 @@ nav{
 .nav-menu-btn i{
     font-size: 28px;
     cursor: pointer;
+    text-decoration: none; /* Enlever le soulignement */
+
 }
 .active-link{
     position: relative;
@@ -198,13 +202,19 @@ nav{
 .featured-text-btn{
     display: flex;
     gap: 20px;
+    text-decoration: none; /* Enlever le soulignement */
+
 }
 .featured-text-btn>.blue-btn{
     background: var(--first-color);
     color: var(--color-white);
+    text-decoration: none; /* Enlever le soulignement */
+
 }
 .featured-text-btn>.blue-btn:hover{
     background: var(--first-color-hover);
+    text-decoration: none; /* Enlever le soulignement */
+
 }
 .social_icons{
     display: flex;
@@ -333,9 +343,13 @@ h3{
     background: var(--first-color);
     color: var(--color-white);
     border-radius: 30px;
+    text-decoration: none; /* Enlever le soulignement */
+
 }
 .about-btn button:hover{
     background: var(--first-color-hover);
+    text-decoration: none; /* Enlever le soulignement */
+
 }
 
 /* ----- ABOUT / SKILLS BOX ----- */
@@ -366,29 +380,47 @@ h3{
     gap: 20px;
     flex-wrap: wrap;
 }
-.project-box{
+.project-box {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 30%;
-    height: 250px;
-    background: var(--color-white);
+    width: 45%;
+    height: 920px;
+    background: var(--color-whitesmoke);
     border-radius: 20px;
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
     overflow: hidden;
+    padding: 20px; /* Ajout d'un padding pour l'espacement interne */
+    text-align: center; /* Centrer le texte */
 }
-.project-box>i{
+.ok{
+    font-size: 18px;
+    color: var(--color-black);
+}
+
+.project-image {
+    width: 480px; /* Ajuster la taille de l'image */
+    height: 250px;
+    margin-bottom: 10px; /* Espace entre l'image et le label */
+}
+/*
+.project-box > i {
     font-size: 50px;
     color: #00B5E7;
     margin-bottom: 25px;
-}
-.project-box label{
+}*/
+
+.project-box > label {
     font-size: 15px;
     color: #777;
+    margin-bottom: 5px;
+    text-decoration: none; /* Enlever le soulignement */
+    /* Espace entre les labels */
 }
-.project-box::after, .contact-info::after{
+/*
+.project-box::after, .contact-info::after {
     content: "";
     position: absolute;
     bottom: -100%;
@@ -397,17 +429,18 @@ h3{
     height: 100%;
     transition: .4s;
     z-index: 1;
-}
-.project-box:hover.project-box::after,
-.contact-info:hover.contact-info::after{
+}*/
+
+.project-box:hover::after, .contact-info:hover::after {
     bottom: 0;
 }
-.project-box:hover.project-box i,
-.project-box:hover.project-box>h3,
-.project-box:hover.project-box>label{
+/*
+.project-box:hover i,
+.project-box:hover h3,
+.project-box:hover > label {
     color: var(--color-white);
     z-index: 2;
-}
+}*/
 
 /* ----- CONTACT BOX ----- */
 .contact-info{
@@ -448,6 +481,17 @@ h3{
     z-index: 2;
 }
 
+.row {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement si nécessaire */
+    height: 100vh; /* Optionnel: Pour centrer verticalement si nécessaire */
+}
+
+.col {
+    flex: 0 0 auto; /* Ne pas étendre la colonne */
+}
+
 /* ----- CONTACT FORM ----- */
 .form-control{
     display: flex;
@@ -480,6 +524,8 @@ textarea{
     resize: none;
 }
 .form-button>.btn{
+    text-decoration: none; /* Enlever le soulignement */
+
     display: flex;
     align-items: center;
     justify-content: center;
