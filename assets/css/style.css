@@ -405,6 +405,12 @@ h3{
     height: 250px;
     margin-bottom: 10px; /* Espace entre l'image et le label */
 }
+
+.project-imageMobile {
+    width: 280px; /* Ajuster la taille de l'image */
+    height: 350px;
+    margin-bottom: 10px; 
+}
 /*
 .project-box > i {
     font-size: 50px;
