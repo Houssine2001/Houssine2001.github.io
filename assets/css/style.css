@@ -411,6 +411,21 @@ h3{
     height: 350px;
     margin-bottom: 10px; 
 }
+
+
+.project-box .button-container {
+    display: flex;
+    gap: 10px; /* espace entre les boutons */
+}
+
+.blue-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
 /*
 .project-box > i {
     font-size: 50px;
