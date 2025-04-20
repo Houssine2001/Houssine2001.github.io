@@ -23,8 +23,8 @@ function headerShadow() {
     navHeader.style.backdropFilter = "blur(10px)";
   } else {
     navHeader.style.boxShadow = "none";
-    navHeader.style.height = "90px";
-    navHeader.style.lineHeight = "90px";
+    navHeader.style.height = window.innerWidth <= 768 ? "70px" : "90px";
+    navHeader.style.lineHeight = window.innerWidth <= 768 ? "70px" : "90px";
     navHeader.style.backgroundColor = "var(--body-color)";
     navHeader.style.backdropFilter = "none";
   }
@@ -98,11 +98,15 @@ function scrollActive() {
     const sectionHeight = current.offsetHeight,
           sectionTop = current.offsetTop - 50,
           sectionId = current.getAttribute('id')
-
-    if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) { 
-      document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.add('active-link')
-    } else {
-      document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.remove('active-link')
+    
+    try {
+      if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) { 
+        document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.add('active-link')
+      } else {
+        document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.remove('active-link')
+      }
+    } catch (error) {
+      // Silently handle any errors if section links aren't found
     }
   })
 }
@@ -114,6 +118,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialisation des sliders d'images pour chaque projet
   document.querySelectorAll('.project-box').forEach((projectBox) => {
     let currentImageIndex = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
     const images = projectBox.querySelectorAll('.project-image, .project-imageMobile');
     const prevBtn = projectBox.querySelector('.prev-btn');
     const nextBtn = projectBox.querySelector('.next-btn');
@@ -137,46 +144,78 @@ document.addEventListener('DOMContentLoaded', function() {
       showImage(currentImageIndex);
     });
 
+    // Support pour les événements tactiles (swipe)
+    projectBox.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, {passive: true});
+    
+    projectBox.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, {passive: true});
+    
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      if (touchEndX < touchStartX - swipeThreshold) {
+        // Swipe gauche - image suivante
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        showImage(currentImageIndex);
+      } else if (touchEndX > touchStartX + swipeThreshold) {
+        // Swipe droit - image précédente
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        showImage(currentImageIndex);
+      }
+    }
+
     // Auto-rotation des images toutes les 5 secondes
     let slideInterval = setInterval(() => {
       currentImageIndex = (currentImageIndex + 1) % images.length;
       showImage(currentImageIndex);
     }, 5000);
 
-    // Arrêter la rotation automatique au survol
-    projectBox.addEventListener('mouseenter', () => {
+    // Arrêter la rotation automatique au survol ou au toucher
+    const pauseSlideshow = () => {
       clearInterval(slideInterval);
-    });
-
-    // Reprendre la rotation automatique quand la souris quitte
-    projectBox.addEventListener('mouseleave', () => {
+    };
+    
+    const resumeSlideshow = () => {
       slideInterval = setInterval(() => {
         currentImageIndex = (currentImageIndex + 1) % images.length;
         showImage(currentImageIndex);
       }, 5000);
-    });
+    };
+
+    projectBox.addEventListener('mouseenter', pauseSlideshow);
+    projectBox.addEventListener('mouseleave', resumeSlideshow);
+    projectBox.addEventListener('touchstart', pauseSlideshow, {passive: true});
+    projectBox.addEventListener('touchend', resumeSlideshow, {passive: true});
 
     // Initialisation: afficher la première image
     showImage(currentImageIndex);
   });
 
-  // Animation des compétences au survol
+  // Animation des compétences au survol et au toucher
   const skillSpans = document.querySelectorAll('.skills-list span');
   skillSpans.forEach(span => {
-    span.addEventListener('mouseenter', function() {
+    const animateSkill = function() {
       this.style.transform = 'scale(1.1)';
       this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.2)';
-    });
+    };
     
-    span.addEventListener('mouseleave', function() {
+    const resetSkill = function() {
       this.style.transform = 'scale(1)';
       this.style.boxShadow = 'none';
-    });
+    };
+    
+    span.addEventListener('mouseenter', animateSkill);
+    span.addEventListener('mouseleave', resetSkill);
+    span.addEventListener('touchstart', animateSkill, {passive: true});
+    span.addEventListener('touchend', resetSkill, {passive: true});
   });
 
-  // Effet parallaxe subtil pour l'image de profil
+  // Effet parallaxe subtil pour l'image de profil - désactivé sur mobile
   const featuredImage = document.querySelector('.featured-image .image');
-  if (featuredImage) {
+  if (featuredImage && window.innerWidth > 768) {
     window.addEventListener('mousemove', (e) => {
       const x = (e.clientX / window.innerWidth - 0.5) * 20;
       const y = (e.clientY / window.innerHeight - 0.5) * 20;
@@ -184,4 +223,20 @@ document.addEventListener('DOMContentLoaded', function() {
       featuredImage.style.transform = `translateX(${x}px) translateY(${y}px)`;
     });
   }
+  
+  // Fermer le menu de navigation lorsqu'un lien est cliqué sur mobile
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const navMenu = document.getElementById('myNavMenu');
+      if (navMenu.classList.contains('responsive')) {
+        navMenu.className = 'nav-menu';
+      }
+    });
+  });
+  
+  // Initialiser la hauteur de la barre de navigation en fonction de la taille de l'écran
+  headerShadow();
+  
+  // Recalculer lors du redimensionnement de la fenêtre
+  window.addEventListener('resize', headerShadow);
 });
