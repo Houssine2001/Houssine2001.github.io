@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=5.0">
     <meta name="description" content="Portfolio de Houssine Ben Arous - Développeur Full Stack & Mobile">
     <meta name="theme-color" content="#0ea5e9">
     <meta name="mobile-web-app-capable" content="yes">
@@ -41,6 +41,10 @@
                     <div class="circle"></div>
                 </li>
                 <li class="nav_list">
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <div class="circle"></div>
+                </li>
+                <li class="nav_list">
                     <a href="#projects" class="nav-link">Projects</a>
                     <div class="circle"></div>
                 </li>
@@ -52,6 +56,12 @@
         </div>
         <div class="nav-button" data-aos="fade-left" data-aos-duration="1000">
             <button class="btn" onclick="window.open('./assets/RenderCV_EngineeringResumes_Theme.pdf')">Download CV<i class="uil uil-file-alt"></i></button>
+        </div>
+        <div class="theme-toggle" data-aos="fade-left" data-aos-duration="800">
+            <i class="uil uil-moon" id="theme-toggle-icon"></i>
+        </div>
+        <div class="scroll-to-top">
+            <i class="uil uil-arrow-up"></i>
         </div>
         <div class="nav-menu-btn">
             <i class="uil uil-bars" onclick="myMenuFunction()"></i>
@@ -192,24 +202,153 @@
             </div>
           </div>
        </section>
+       
+       <div class="section-divider"></div>
+       
+       <!-- -------------- EXPERIENCE SECTION ---------------- -->
+       <section class="section" id="experience">
+          <div class="top-header">
+            <h1>Experience</h1>
+            <span>My professional journey</span>
+          </div>
+          <div class="timeline-container">
+            <!-- Experience item 1 -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <span>Nov 2024 - Present</span>
+                </div>
+                <div class="timeline-content">
+                    <h3>Full Stack Developer Freelance</h3>
+                    <h4><i class="uil uil-building"></i> SMART FARM</h4>
+                    <ul>
+                        <li><i class="uil uil-check-circle"></i> Development and maintenance of web applications using MERN stack for agricultural management.</li>
+                        <li><i class="uil uil-check-circle"></i> Collaboration with the team to design and implement features, improving user experience and performance.</li>
+                        <li><i class="uil uil-check-circle"></i> Technologies: MongoDB, PostgreSQL, Express.js, React.js, Node.js, REST API, Git.</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span>MongoDB</span>
+                        <span>Express</span>
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>Git</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience item 2 -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <span>Jun 2024 - Aug 2024</span>
+                </div>
+                <div class="timeline-content">
+                    <h3>Web Developer Intern</h3>
+                    <h4><i class="uil uil-building"></i> SMART FARM</h4>
+                    <ul>
+                        <li><i class="uil uil-check-circle"></i> Testing, debugging, and fixing errors in an agricultural management web application to improve stability and performance.</li>
+                        <li><i class="uil uil-check-circle"></i> Optimization of the user interface (UX/UI) for smoother navigation and better user experience.</li>
+                        <li><i class="uil uil-check-circle"></i> Improvement of website reliability and significant reduction in loading time.</li>
+                        <li><i class="uil uil-check-circle"></i> Technologies: ReactJS, Express.js, PostgreSQL.</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span>React.js</span>
+                        <span>Express</span>
+                        <span>PostgreSQL</span>
+                        <span>UX/UI</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience item 3 -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <span>Feb 2023 - May 2023</span>
+                </div>
+                <div class="timeline-content">
+                    <h3>Final Year Project Intern</h3>
+                    <h4><i class="uil uil-building"></i> OACA</h4>
+                    <ul>
+                        <li><i class="uil uil-check-circle"></i> Development of a web and mobile access control application based on facial recognition.</li>
+                        <li><i class="uil uil-check-circle"></i> Technologies: PHP, MySQL, Flutter, Raspberry Pi, Machine Learning.</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span>PHP</span>
+                        <span>MySQL</span>
+                        <span>Flutter</span>
+                        <span>Raspberry Pi</span>
+                        <span>ML</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience item 4 -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <span>Jan 2023</span>
+                </div>
+                <div class="timeline-content">
+                    <h3>IoT Developer Intern</h3>
+                    <h4><i class="uil uil-building"></i> Smart Soft Pro</h4>
+                    <ul>
+                        <li><i class="uil uil-check-circle"></i> Development of a smart irrigation system controlled via mobile app, reducing water consumption by 20%.</li>
+                        <li><i class="uil uil-check-circle"></i> Technologies: Arduino, Java, Firebase.</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span>Arduino</span>
+                        <span>Java</span>
+                        <span>Firebase</span>
+                        <span>IoT</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience item 5 -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
+                    <span>Sep 2021</span>
+                </div>
+                <div class="timeline-content">
+                    <h3>Front-End Developer Intern</h3>
+                    <h4><i class="uil uil-building"></i> Institut Poincaré Carthage</h4>
+                    <ul>
+                        <li><i class="uil uil-check-circle"></i> Complete development of the front-end of an educational website.</li>
+                        <li><i class="uil uil-check-circle"></i> Technologies: HTML, CSS, JavaScript.</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+          </div>
+       </section>
+       
+       <div class="section-divider"></div>
 
        <!-- -------------- PROJECT BOX ---------------- -->
 
        <section class="section" id="projects">
         <div class="top-header">
             <h1>Projects</h1>
+                  <span>Some of my recent work</span>
+
         </div>
         <div class="project-container">
     
             <!-- Application Web de Gestion de Gym -->
-            <div class="project-box">
+            <div class="project-box gradient-border" data-aos="fade-up" data-aos-duration="1200">
                 <h2>Application Web de Gestion de Gym</h2>
                 <div class="image-slider">
                     <img src="assets/images/web.jpeg" alt="Image du Projet" class="project-image active">
                     <img src="assets/images/web2.jpeg" alt="Image du Projet" class="project-image">
                     <img src="assets/images/web3.jpeg" alt="Image du Projet" class="project-image">
                 </div>
-                <p class="project-description">FlexFlowGym optimise la gestion des abonnements, plannings et équipements dans les centres de fitness, permettant un gain de temps administratif et une gestion des stocks via l'IA.</p>
+                <p class="project-description">FlexFlowGym optimizes subscription management, schedules, and equipment in fitness centers, allowing administrative time savings and AI-powered inventory management.</p>
 
 
                 <button class="prev-btn">❮</button>
@@ -219,14 +358,14 @@
             </div>
     
             <!-- Application de Bureau de Gestion de Gym -->
-            <div class="project-box">
+            <div class="project-box gradient-border" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
                 <h2>Application Desktop de Gestion de Gym</h2>
                 <div class="image-slider">
                     <img src="assets/images/1.PNG" alt="Image du Projet" class="project-image active">
                     <img src="assets/images/2.PNG" alt="Image du Projet" class="project-image">
                     <img src="assets/images/3.PNG" alt="Image du Projet" class="project-image">
                 </div>
-                <p class="project-description">Application desktop Java pour la gestion des membres, des plannings et des entraînements dans un gymnase, utilisant MySQL pour le stockage des données.</p>
+                <p class="project-description">Java desktop application for managing members, schedules, and workouts in a gym, using MySQL for data storage.</p>
                 <button class="prev-btn">❮</button>
                 <button class="next-btn">❯</button>
                 <h3 class="ok">Java, MySQL</h3>
@@ -234,13 +373,13 @@
             </div>
     
             <!-- Application Mobile de Gestion de Gym -->
-            <div class="project-box">
+            <div class="project-box gradient-border" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
                 <h2>Application Mobile de Gestion de Gym</h2>
                 <div class="image-slider">
                     <img src="assets/images/m1.jpg" alt="Image du Projet" class="project-imageMobile active">
                     <img src="assets/images/m2.jpg" alt="Image du Projet" class="project-imageMobile">
                 </div>
-                <p class="project-description">Application mobile développée avec FlutterFlow et Firebase pour la gestion des abonnements et entraînements dans un gymnase, accessible partout.</p>
+                <p class="project-description">Mobile application developed with FlutterFlow and Firebase for managing gym subscriptions and workouts, accessible anywhere.</p>
                 <button class="prev-btn">❮</button>
                 <button class="next-btn">❯</button>
                 <h3 class="ok">FlutterFlow, Firebase</h3>
@@ -248,7 +387,7 @@
             </div>
     
             <!-- Employee Access Control System Mobile App -->
-            <div class="project-box">
+            <div class="project-box gradient-border" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
                 <h2>Employee Access Control System Mobile App</h2>
                 <div class="image-slider">
                     <img src="assets/images/c3.jpeg" alt="Project Image" class="project-imageMobile active">
@@ -258,7 +397,7 @@
                     <img src="assets/images/m6.jpg" alt="Project Image" class="project-imageMobile">
 
                 </div>
-                <p class="project-description">Application mobile de contrôle d'accès avec reconnaissance faciale, pour la gestion sécurisée des employés dans des zones sensibles comme les aéroports.</p>
+                <p class="project-description">Mobile access control application with facial recognition for secure employee management in sensitive areas such as airports.</p>
                 <button class="prev-btn">❮</button>
                 <button class="next-btn">❯</button>
                 <h3 class="ok">Flutter, MySQL</h3>
@@ -268,7 +407,7 @@
                 </div>
             </div>
     
-            <div class="project-box">
+            <div class="project-box gradient-border" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="800">
                 <h2>Pipeline DevOps Full Stack</h2>
                 <div class="image-slider">
                     <img src="assets/images/devops1.jpg" alt="Project Image" class="project-image active">
@@ -278,7 +417,7 @@
                     <img src="assets/images/devops5.png" alt="Project Image" class="project-image">
                 </div>
                 <p class="project-description">
-                    Pipeline DevOps complet pour une application Spring Boot & Angular, incluant intégration continue avec Jenkins, tests automatisés, analyse de code (SonarQube, JaCoCo), déploiement via Docker et monitoring avec Prometheus & Grafana.
+                    Complete DevOps pipeline for a Spring Boot & Angular application, including continuous integration with Jenkins, automated testing, code analysis (SonarQube, JaCoCo), deployment via Docker, and monitoring with Prometheus & Grafana.
                 </p>
                 <button class="prev-btn">❮</button>
                 <button class="next-btn">❯</button>
@@ -287,6 +426,8 @@
             
         </div>
     </section>
+
+       <div class="section-divider"></div>
     
        <script>
   document.querySelectorAll('.project-box').forEach((projectBox) => {
@@ -319,7 +460,7 @@
     
        <section class="section" id="contact">
           <div class="top-header">
-            <h1>Get in touch</h1>
+            <h1 class="typing-animation">Get in touch</h1>
             <span>Do you have a project in your mind, contact me here</span>
           </div>
           <div class="row">
@@ -349,6 +490,9 @@
                 </li>
                 <li class="footer_menu_list">
                     <a href="#about">About</a>
+                </li>
+                <li class="footer_menu_list">
+                    <a href="#experience">Experience</a>
                 </li>
                 <li class="footer_menu_list">
                     <a href="#projects">Projects</a>
@@ -394,5 +538,57 @@
 
     <!-- ----- MAIN JS ----- -->
     <script src="assets/js/main.js"></script>
+    
+    <!-- Section visibility animation -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Add section visibility observer
+            const sections = document.querySelectorAll('section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Scroll to top functionality
+            const scrollToTopBtn = document.querySelector('.scroll-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.add('visible');
+                } else {
+                    scrollToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Add parallax effect to the avatar image
+            const avatarImage = document.querySelector('.image');
+            
+            document.addEventListener('mousemove', (e) => {
+                if (window.innerWidth > 768) {  // Only on desktop
+                    const mouseX = e.clientX / window.innerWidth - 0.5;
+                    const mouseY = e.clientY / window.innerHeight - 0.5;
+                    
+                    if (avatarImage) {
+                        avatarImage.style.transform = `translate(${mouseX * 15}px, ${mouseY * 15}px) rotateY(${mouseX * 10}deg) rotateX(${mouseY * -10}deg)`;
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
