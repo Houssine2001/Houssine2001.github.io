@@ -16,19 +16,115 @@ function headerShadow() {
   const navHeader = document.getElementById("header");
 
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-    navHeader.style.boxShadow = "0 1px 6px rgba(0, 0, 0, 0.1)";
+    navHeader.style.boxShadow = "0 2px 15px rgba(0, 0, 0, 0.1)";
     navHeader.style.height = "70px";
     navHeader.style.lineHeight = "70px";
-    navHeader.style.backgroundColor = "rgba(255, 255, 255, 0.95)";
+    navHeader.style.backgroundColor = "var(--card-bg-color)";
     navHeader.style.backdropFilter = "blur(10px)";
+    navHeader.classList.add('scrolled');
   } else {
     navHeader.style.boxShadow = "none";
     navHeader.style.height = window.innerWidth <= 768 ? "70px" : "90px";
     navHeader.style.lineHeight = window.innerWidth <= 768 ? "70px" : "90px";
     navHeader.style.backgroundColor = "var(--body-color)";
     navHeader.style.backdropFilter = "none";
+    navHeader.classList.remove('scrolled');
   }
 }
+
+/* ----- DARK MODE TOGGLE ----- */
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.querySelector('.theme-toggle');
+  const themeToggleIcon = document.getElementById('theme-toggle-icon');
+  
+  // Check for saved theme preference or use preferred color scheme
+  const savedTheme = localStorage.getItem('theme') || 
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  
+  // Apply the saved theme on page load
+  if (savedTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeToggleIcon.classList.replace('uil-moon', 'uil-sun');
+  }
+  
+  // Smooth transition for theme changes
+  document.documentElement.style.setProperty('--transition-speed', '0.3s ease');
+  
+  // Add animation class to the theme toggle icon
+  themeToggleIcon.classList.add('theme-icon-animated');
+  
+  // Toggle theme when the button is clicked
+  themeToggle.addEventListener('click', function() {
+    // Add click animation
+    themeToggle.classList.add('theme-toggle-clicked');
+    setTimeout(() => {
+      themeToggle.classList.remove('theme-toggle-clicked');
+    }, 500);
+    
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    // Update the theme attribute with animation
+    document.documentElement.classList.add('theme-transition');
+    document.documentElement.setAttribute('data-theme', newTheme);
+    
+    setTimeout(() => {
+      document.documentElement.classList.remove('theme-transition');
+    }, 300);
+    
+    // Save preference to localStorage
+    localStorage.setItem('theme', newTheme);
+    
+    // Update the icon with animation
+    themeToggleIcon.classList.add('rotate-icon');
+    
+    setTimeout(() => {
+      if (newTheme === 'dark') {
+        themeToggleIcon.classList.replace('uil-moon', 'uil-sun');
+      } else {
+        themeToggleIcon.classList.replace('uil-sun', 'uil-moon');
+      }
+      
+      setTimeout(() => {
+        themeToggleIcon.classList.remove('rotate-icon');
+      }, 200);
+    }, 150);
+  });
+  
+  // Initialize portfolio image sliders
+  initializePortfolioSliders();
+});
+
+/* ----- PARALLAX EFFECT FOR AVATAR ----- */
+document.addEventListener('DOMContentLoaded', function() {
+  const avatar = document.querySelector('.featured-image .image');
+  
+  if (avatar) {
+    document.addEventListener('mousemove', function(e) {
+      // Only apply effect on larger screens
+      if (window.innerWidth > 768) {
+        const mouseX = e.clientX / window.innerWidth - 0.5;
+        const mouseY = e.clientY / window.innerHeight - 0.5;
+        
+        // Calculate rotation and movement based on mouse position
+        const rotateY = mouseX * 10; // Degrees of rotation
+        const rotateX = -mouseY * 10; // Negative to make it look natural
+        const translateX = mouseX * 15; // Pixels of movement
+        const translateY = mouseY * 15;
+        
+        // Apply the transform with transition for smoother effect
+        avatar.style.transition = 'transform 0.1s ease-out';
+        avatar.style.transform = `translate(${translateX}px, ${translateY}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      }
+    });
+    
+    // Reset position when mouse leaves window
+    document.addEventListener('mouseleave', function() {
+      avatar.style.transition = 'transform 0.5s ease-out';
+      avatar.style.transform = 'translate(0, 0) rotateX(0) rotateY(0)';
+    });
+  }
+});
 
 /* ----- TYPING EFFECT ----- */
 var typingEffect = new Typed(".typedText",{
@@ -76,6 +172,7 @@ const srLeft = ScrollReveal({
 
 srLeft.reveal('.about-info',{delay: 100})
 srLeft.reveal('.contact-info',{delay: 100})
+srLeft.reveal('.timeline-item:nth-child(odd)',{delay: 100})
 
 /* -- ABOUT SKILLS & FORM BOX -- */
 const srRight = ScrollReveal({
@@ -87,6 +184,7 @@ const srRight = ScrollReveal({
 
 srRight.reveal('.skills-box',{delay: 100})
 srRight.reveal('.form-control',{delay: 100})
+srRight.reveal('.timeline-item:nth-child(even)',{delay: 100})
 
 /* ----- CHANGE ACTIVE LINK ----- */
 const sections = document.querySelectorAll('section[id]')
@@ -114,8 +212,8 @@ function scrollActive() {
 window.addEventListener('scroll', scrollActive)
 
 /* ----- PORTFOLIO IMAGE SLIDER ----- */
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialisation des sliders d'images pour chaque projet
+function initializePortfolioSliders() {
+  // Initialize sliders for each project
   document.querySelectorAll('.project-box').forEach((projectBox) => {
     let currentImageIndex = 0;
     let touchStartX = 0;
@@ -125,26 +223,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevBtn = projectBox.querySelector('.prev-btn');
     const nextBtn = projectBox.querySelector('.next-btn');
     
-    // Fonction pour afficher une image spécifique
+    if (!images.length || !prevBtn || !nextBtn) return;
+    
+    // Function to display a specific image
     function showImage(index) {
       images.forEach((img, i) => {
         img.classList.toggle('active', i === index);
       });
     }
 
-    // Gestion du bouton suivant
+    // Next button handler
     nextBtn.addEventListener('click', () => {
       currentImageIndex = (currentImageIndex + 1) % images.length;
       showImage(currentImageIndex);
     });
 
-    // Gestion du bouton précédent
+    // Previous button handler
     prevBtn.addEventListener('click', () => {
       currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
       showImage(currentImageIndex);
     });
 
-    // Support pour les événements tactiles (swipe)
+    // Touch events for mobile swipe
     projectBox.addEventListener('touchstart', (e) => {
       touchStartX = e.changedTouches[0].screenX;
     }, {passive: true});
@@ -157,23 +257,23 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleSwipe() {
       const swipeThreshold = 50;
       if (touchEndX < touchStartX - swipeThreshold) {
-        // Swipe gauche - image suivante
+        // Swipe left - next image
         currentImageIndex = (currentImageIndex + 1) % images.length;
         showImage(currentImageIndex);
       } else if (touchEndX > touchStartX + swipeThreshold) {
-        // Swipe droit - image précédente
+        // Swipe right - previous image
         currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
         showImage(currentImageIndex);
       }
     }
 
-    // Auto-rotation des images toutes les 5 secondes
+    // Auto-rotate images every 5 seconds
     let slideInterval = setInterval(() => {
       currentImageIndex = (currentImageIndex + 1) % images.length;
       showImage(currentImageIndex);
     }, 5000);
 
-    // Arrêter la rotation automatique au survol ou au toucher
+    // Pause auto-rotation on hover or touch
     const pauseSlideshow = () => {
       clearInterval(slideInterval);
     };
@@ -190,53 +290,7 @@ document.addEventListener('DOMContentLoaded', function() {
     projectBox.addEventListener('touchstart', pauseSlideshow, {passive: true});
     projectBox.addEventListener('touchend', resumeSlideshow, {passive: true});
 
-    // Initialisation: afficher la première image
+    // Initialize: show first image
     showImage(currentImageIndex);
   });
-
-  // Animation des compétences au survol et au toucher
-  const skillSpans = document.querySelectorAll('.skills-list span');
-  skillSpans.forEach(span => {
-    const animateSkill = function() {
-      this.style.transform = 'scale(1.1)';
-      this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.2)';
-    };
-    
-    const resetSkill = function() {
-      this.style.transform = 'scale(1)';
-      this.style.boxShadow = 'none';
-    };
-    
-    span.addEventListener('mouseenter', animateSkill);
-    span.addEventListener('mouseleave', resetSkill);
-    span.addEventListener('touchstart', animateSkill, {passive: true});
-    span.addEventListener('touchend', resetSkill, {passive: true});
-  });
-
-  // Effet parallaxe subtil pour l'image de profil - désactivé sur mobile
-  const featuredImage = document.querySelector('.featured-image .image');
-  if (featuredImage && window.innerWidth > 768) {
-    window.addEventListener('mousemove', (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 20;
-      const y = (e.clientY / window.innerHeight - 0.5) * 20;
-      
-      featuredImage.style.transform = `translateX(${x}px) translateY(${y}px)`;
-    });
-  }
-  
-  // Fermer le menu de navigation lorsqu'un lien est cliqué sur mobile
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      const navMenu = document.getElementById('myNavMenu');
-      if (navMenu.classList.contains('responsive')) {
-        navMenu.className = 'nav-menu';
-      }
-    });
-  });
-  
-  // Initialiser la hauteur de la barre de navigation en fonction de la taille de l'écran
-  headerShadow();
-  
-  // Recalculer lors du redimensionnement de la fenêtre
-  window.addEventListener('resize', headerShadow);
-});
+}
