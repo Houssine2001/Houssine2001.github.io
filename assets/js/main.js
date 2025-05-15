@@ -3,9 +3,23 @@ function myMenuFunction(){
   var menuBtn = document.getElementById("myNavMenu");
 
   if(menuBtn.className === "nav-menu"){
-    menuBtn.className += " responsive";
+    menuBtn.className += " active";
+    document.body.style.overflow = "hidden"; // Prevent scrolling when menu is open
   } else {
     menuBtn.className = "nav-menu";
+    document.body.style.overflow = ""; // Re-enable scrolling when menu is closed
+  }
+  
+  // Add overlay when menu is active
+  if(document.querySelector('.menu-overlay')) {
+    document.querySelector('.menu-overlay').remove();
+  } else {
+    const overlay = document.createElement('div');
+    overlay.className = 'menu-overlay';
+    overlay.addEventListener('click', () => {
+      myMenuFunction();
+    });
+    document.body.appendChild(overlay);
   }
 }
 
@@ -93,6 +107,30 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Initialize portfolio image sliders
   initializePortfolioSliders();
+});
+
+/* ----- CLOSE MOBILE MENU WHEN LINK IS CLICKED ----- */
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('.nav-menu a');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const menuBtn = document.getElementById("myNavMenu");
+      if (menuBtn.classList.contains('active')) {
+        myMenuFunction();
+      }
+    });
+  });
+  
+  // Make sure the menu is properly sized on window resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      document.body.style.overflow = "";
+      if (document.querySelector('.menu-overlay')) {
+        document.querySelector('.menu-overlay').remove();
+      }
+    }
+  });
 });
 
 /* ----- PARALLAX EFFECT FOR AVATAR ----- */
