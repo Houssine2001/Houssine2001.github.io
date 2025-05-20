@@ -305,6 +305,59 @@ function initializePortfolioSliders() {
       }
     }
 
+
+
+/* ----- READ MORE FUNCTIONALITY FOR PROJECT DESCRIPTIONS ----- */
+document.addEventListener('DOMContentLoaded', function() {
+  // Find all project descriptions
+  const descriptions = document.querySelectorAll('.project-description');
+  
+  descriptions.forEach(description => {
+    // Create a clone to measure the content height
+    const clone = description.cloneNode(true);
+    clone.style.maxHeight = 'none';
+    clone.style.visibility = 'hidden';
+    clone.style.position = 'absolute';
+    clone.style.display = 'block';
+    clone.style.webkitLineClamp = 'unset';
+    document.body.appendChild(clone);
+    
+    // Get the content height
+    const scrollHeight = clone.scrollHeight;
+    const lineHeight = parseInt(window.getComputedStyle(description).lineHeight) || 20;
+    const threeLineHeight = lineHeight * 3;
+    
+    // Remove the clone
+    document.body.removeChild(clone);
+    
+    // Only apply "read more" if the content is more than 3 lines
+    if (scrollHeight > threeLineHeight) {
+      // Add collapsed class
+      description.classList.add('collapsed');
+      
+      // Create read more button
+      const readMoreBtn = document.createElement('span');
+      readMoreBtn.className = 'read-more-btn';
+      readMoreBtn.textContent = 'Lire plus';
+      description.after(readMoreBtn);
+      
+      // Add click event
+      readMoreBtn.addEventListener('click', function() {
+        if (description.classList.contains('collapsed')) {
+          description.classList.remove('collapsed');
+          readMoreBtn.classList.add('expanded');
+          readMoreBtn.textContent = 'Lire moins';
+        } else {
+          description.classList.add('collapsed');
+          readMoreBtn.classList.remove('expanded');
+          readMoreBtn.textContent = 'Lire plus';
+        }
+      });
+    }
+  });
+});
+
+
     // Auto-rotate images every 5 seconds
     let slideInterval = setInterval(() => {
       currentImageIndex = (currentImageIndex + 1) % images.length;
