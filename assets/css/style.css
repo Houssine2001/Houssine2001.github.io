@@ -802,7 +802,7 @@ h3{
 /* ----- ENHANCED PROJECT BOX STYLING ----- */
 .project-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
@@ -813,7 +813,9 @@ h3{
     background: var(--card-bg-color);
     border-radius: 15px;
     padding: 25px;
-    height: 650px; /* Augmentation de la hauteur */
+    height: auto;
+    min-height: 500px;
+    max-height: 650px;
     box-shadow: var(--card-shadow);
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -826,7 +828,8 @@ h3{
 }
 
 .image-slider {
-    height: 280px; /* Augmentation de la hauteur pour montrer plus d'image */
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
     overflow: hidden;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -834,12 +837,14 @@ h3{
 }
 
 .project-image, .project-imageMobile {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
-    object-fit: contain; /* Changed from cover to contain for better display */
+    object-fit: contain;
     object-position: center;
 }
-
 
 /* Project description style */
 .project-box .project-description {
@@ -874,6 +879,51 @@ h3{
     position: relative;
     margin-bottom: 5px;
 }
+
+
+/* Additional responsive adjustments */
+@media only screen and (max-width: 768px) {
+    .project-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 0 15px;
+    }
+    
+    .project-box {
+        min-height: 450px;
+        padding: 15px;
+    }
+    
+    .project-box h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .project-description {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .project-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-box {
+        min-height: 400px;
+    }
+    
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .button-container .btn {
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+}
+
 
 /* Read more button style */
 .read-more-btn {
