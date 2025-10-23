@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Portfolio - Checklist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            color: #667eea;
+            font-size: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .checklist {
+            list-style: none;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            margin-bottom: 8px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .checklist-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+        
+        .checklist-item.checked {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            cursor: pointer;
+        }
+        
+        .progress-bar {
+            height: 30px;
+            background: #e9ecef;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 20px;
+            transition: transform 0.2s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Checklist de Test Portfolio</h1>
+        <p class="subtitle">Vérifiez tous les points avant de déployer</p>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress">0%</div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalItems">0</div>
+                <div class="stat-label">Total</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="completedItems">0</div>
+                <div class="stat-label">Complété</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="percentageComplete">0%</div>
+                <div class="stat-label">Progrès</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">✅ Design & Apparence</h2>
+            <ul class="checklist">
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Le logo et le nom s'affichent correctement
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Les couleurs sont harmonieuses
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Les animations sont fluides
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> L'image de profil s'affiche bien
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Le thème clair/sombre fonctionne
+                </li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">📱 Responsive Design</h2>
+            <ul class="checklist">
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Testé sur mobile (< 480px)
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Testé sur tablette (768px)
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Testé sur desktop (1920px)
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Le menu mobile fonctionne
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Pas de scroll horizontal
+                </li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">🎯 Fonctionnalités</h2>
+            <ul class="checklist">
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Navigation entre sections fonctionne
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Bouton "Scroll to top" apparaît
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Carousel d'images fonctionne
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Les liens sociaux sont corrects
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Le CV se télécharge
+                </li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">⚡ Performance</h2>
+            <ul class="checklist">
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Temps de chargement < 3s
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Pas d'erreurs dans la console
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Images optimisées
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Lighthouse score > 90
+                </li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">📝 Contenu</h2>
+            <ul class="checklist">
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Toutes les informations sont à jour
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Pas de fautes d'orthographe
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Les projets sont bien décrits
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Les liens GitHub fonctionnent
+                </li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">🔒 SEO & Accessibilité</h2>
+            <ul class="checklist">
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Meta tags présentes
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Images ont des alt text
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Navigation au clavier fonctionne
+                </li>
+                <li class="checklist-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> Contraste suffisant (WCAG AA)
+                </li>
+            </ul>
+        </div>
+        
+        <button class="btn" onclick="window.print()">📄 Imprimer Checklist</button>
+        <button class="btn btn-secondary" onclick="resetChecklist()">🔄 Réinitialiser</button>
+        <button class="btn" onclick="saveProgress()">💾 Sauvegarder</button>
+    </div>
+    
+    <script>
+        // Initialize
+        updateStats();
+        loadProgress();
+        
+        function toggleCheck(item) {
+            const checkbox = item.querySelector('input[type="checkbox"]');
+            checkbox.checked = !checkbox.checked;
+            
+            if (checkbox.checked) {
+                item.classList.add('checked');
+            } else {
+                item.classList.remove('checked');
+            }
+            
+            updateStats();
+            saveProgress();
+        }
+        
+        function updateStats() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const total = checkboxes.length;
+            const checked = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            const percentage = Math.round((checked / total) * 100);
+            
+            document.getElementById('totalItems').textContent = total;
+            document.getElementById('completedItems').textContent = checked;
+            document.getElementById('percentageComplete').textContent = percentage + '%';
+            
+            const progressBar = document.getElementById('progress');
+            progressBar.style.width = percentage + '%';
+            progressBar.textContent = percentage + '%';
+        }
+        
+        function resetChecklist() {
+            if (confirm('Êtes-vous sûr de vouloir réinitialiser la checklist?')) {
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(cb => {
+                    cb.checked = false;
+                    cb.parentElement.classList.remove('checked');
+                });
+                updateStats();
+                localStorage.removeItem('checklistProgress');
+            }
+        }
+        
+        function saveProgress() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const progress = Array.from(checkboxes).map(cb => cb.checked);
+            localStorage.setItem('checklistProgress', JSON.stringify(progress));
+        }
+        
+        function loadProgress() {
+            const saved = localStorage.getItem('checklistProgress');
+            if (saved) {
+                const progress = JSON.parse(saved);
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach((cb, index) => {
+                    if (progress[index]) {
+                        cb.checked = true;
+                        cb.parentElement.classList.add('checked');
+                    }
+                });
+                updateStats();
+            }
+        }
+        
+        // Auto-save every 5 seconds
+        setInterval(saveProgress, 5000);
+    </script>
+</body>
+</html>

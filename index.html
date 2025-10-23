@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Houssine Ben Arous - Développeur Full Stack & Mobile">
-    <meta name="theme-color" content="#0ea5e9">
+    <meta name="description" content="Portfolio de Houssine Ben Arous - Développeur Full Stack & Mobile, Software Engineering Student passionné par la création d'applications web et mobiles innovantes">
+    <meta name="keywords" content="Houssine Ben Arous, Full Stack Developer, Mobile Developer, Web Developer, Portfolio, Software Engineer">
+    <meta name="author" content="Houssine Ben Arous">
+    <meta name="theme-color" content="#6366f1">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Houssine Ben Arous | Full Stack Developer">
+    <meta property="og:description" content="Portfolio professionnel de Houssine Ben Arous - Software Engineering Student">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./assets/images/preview.png">
 
     <!-- --------- UNICONS ---------- -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
@@ -16,11 +25,21 @@
     
     <!-- --------- CSS ---------- -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 
     <!-- --------- FAVICON ---------- -->
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/images/favicon.png">
+    <link rel="manifest" href="manifest.json">
 
-    <title>Houssine Ben Arous | Portfolio</title>
+    <!-- Preload Critical Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="assets/css/style.css" as="style">
+    <link rel="preload" href="assets/js/main.js" as="script">
+
+    <title>Houssine Ben Arous | Full Stack Developer Portfolio</title>
 </head>
 <body>
    <div class="container">
@@ -42,6 +61,10 @@
                 </li>
                 <li class="nav_list">
                     <a href="#experience" class="nav-link">Experience</a>
+                    <div class="circle"></div>
+                </li>
+                <li class="nav_list">
+                    <a href="#certifications" class="nav-link">Certifications</a>
                     <div class="circle"></div>
                 </li>
                 <li class="nav_list">
@@ -73,9 +96,7 @@
        <!-- -------------- FEATURED BOX ---------------- -->
        <section class="featured-box" id="home">
           <div class="featured-text">
-            <div class="featured-text-card" data-aos="fade-up" data-aos-duration="1000">
-                <span>Full Stack Developer</span>
-            </div>
+           
             <div class="featured-name" data-aos="fade-up" data-aos-duration="1200">
                 <p>Hello, I'm <br> <span class="gradient-text">Houssine Ben Arous</span> <br><span class="typedText"></span></p>
             </div>
@@ -229,6 +250,32 @@
             <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
                 <div class="timeline-dot"></div>
                 <div class="timeline-date">
+                    <span>Jul 2025 - Aug 2025</span>
+                </div>
+                <div class="timeline-content">
+                    <h3>Web Developer Intern</h3>
+                    <h4><i class="uil uil-building"></i> SOFRECOM</h4>
+                    <ul>
+                        <li><i class="uil uil-check-circle"></i> Development of ParcTracker, a MERN stack vehicle tracking application with real-time monitoring.</li>
+                        <li><i class="uil uil-check-circle"></i> Implementation of CI/CD pipelines using Jenkins and containerization with Docker.</li>
+                        <li><i class="uil uil-check-circle"></i> Designed and developed RESTful APIs for efficient data management and communication.</li>
+                        <li><i class="uil uil-check-circle"></i> Technologies: MongoDB, Express.js, React.js, Node.js, Docker, Jenkins, REST API.</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span>MongoDB</span>
+                        <span>Express</span>
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>Docker</span>
+                        <span>Jenkins</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience item 2 -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">
                     <span>Nov 2024 - Present</span>
                 </div>
                 <div class="timeline-content">
@@ -250,7 +297,7 @@
             </div>
 
             <!-- Experience item 2 -->
-            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
                 <div class="timeline-dot"></div>
                 <div class="timeline-date">
                     <span>Jun 2024 - Aug 2024</span>
@@ -274,7 +321,7 @@
             </div>
 
             <!-- Experience item 3 -->
-            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                 <div class="timeline-dot"></div>
                 <div class="timeline-date">
                     <span>Feb 2023 - May 2023</span>
@@ -297,7 +344,7 @@
             </div>
 
             <!-- Experience item 4 -->
-            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
                 <div class="timeline-dot"></div>
                 <div class="timeline-date">
                     <span>Jan 2023</span>
@@ -319,7 +366,7 @@
             </div>
 
             <!-- Experience item 5 -->
-            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
                 <div class="timeline-dot"></div>
                 <div class="timeline-date">
                     <span>Sep 2021</span>
@@ -336,6 +383,103 @@
                         <span>CSS</span>
                         <span>JavaScript</span>
                     </div>
+                </div>
+            </div>
+          </div>
+       </section>
+       
+       <div class="section-divider"></div>
+
+       <!-- -------------- CERTIFICATIONS SECTION ---------------- -->
+       <section class="section" id="certifications">
+          <div class="top-header">
+            <h1>Certifications</h1>
+            <span>Professional credentials and achievements</span>
+          </div>
+          <div class="certifications-container">
+            <div class="certifications-grid">
+                <!-- Google Vertex AI Certification -->
+                <div class="certification-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="certification-header">
+                        <div class="certification-badge">
+                            <img src="assets/images/google.png" alt="Google Vertex AI Badge">
+                        </div>
+                        <div class="certification-info">
+                            <h3>Prompt Design in Vertex AI</h3>
+                            <div class="certification-issuer">
+                                <i class="uil uil-google"></i>
+                                <span>Google Cloud</span>
+                            </div>
+                            <div class="certification-date">
+                                <i class="uil uil-calendar-alt"></i>
+                                <span>October 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certification-skills">
+                        <span class="certification-skill">
+                            <i class="uil uil-brain"></i>
+                            AI/ML
+                        </span>
+                        <span class="certification-skill">
+                            <i class="uil uil-cloud"></i>
+                            Google Cloud
+                        </span>
+                        <span class="certification-skill">
+                            <i class="uil uil-code-branch"></i>
+                            Prompt Engineering
+                        </span>
+                        <span class="certification-skill">
+                            <i class="uil uil-robot"></i>
+                            Generative AI
+                        </span>
+                    </div>
+                    <a href="https://www.credly.com/badges/437a1dad-1390-44ff-b10b-8f139cf051a5/linked_in_profile" target="_blank" class="certification-link">
+                        View Credential
+                        <i class="uil uil-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <!-- Cisco IoT Certification -->
+                <div class="certification-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="certification-header">
+                        <div class="certification-badge">
+                            <img src="assets/images/cisco.png" alt="Cisco IoT Badge">
+                        </div>
+                        <div class="certification-info">
+                            <h3>Introduction to IoT</h3>
+                            <div class="certification-issuer">
+                                <i class="uil uil-server-network"></i>
+                                <span>Cisco Networking Academy</span>
+                            </div>
+                            <div class="certification-date">
+                                <i class="uil uil-calendar-alt"></i>
+                                <span>January 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certification-skills">
+                        <span class="certification-skill">
+                            <i class="uil uil-wifi"></i>
+                            IoT
+                        </span>
+                        <span class="certification-skill">
+                            <i class="uil uil-server-network-alt"></i>
+                            Networking
+                        </span>
+                        <span class="certification-skill">
+                            <i class="uil uil-microchip"></i>
+                            Embedded Systems
+                        </span>
+                        <span class="certification-skill">
+                            <i class="uil uil-bolt"></i>
+                            Automation
+                        </span>
+                    </div>
+                    <a href="https://www.credly.com/badges/c1a06106-eb2e-4f08-9db9-ecc9b364ca57/linked_in_profile" target="_blank" class="certification-link">
+                        View Credential
+                        <i class="uil uil-external-link-alt"></i>
+                    </a>
                 </div>
             </div>
           </div>
@@ -462,6 +606,38 @@
                     <a href="https://fluffy-ganache-bbac91.netlify.app/login" class="btn blue-btn" target="_blank">Live</a>
                 </div>
             </div>
+
+
+         <!-- AI Student Well-being Platform -->
+<div class="project-box gradient-border" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
+    <h2>AI Student Well-being Platform</h2>
+    <div class="image-slider">
+        <img src="assets/images/laravel/laravel1.png" alt="Project Image" class="project-image active">
+        <img src="assets/images/laravel/laravel2.png" alt="Project Image" class="project-image">
+        <img src="assets/images/laravel/laravel3.png" alt="Project Image" class="project-image">
+        <img src="assets/images/laravel/laravel4.png" alt="Project Image" class="project-image">
+        <img src="assets/images/laravel/laravel5.png" alt="Project Image" class="project-image">
+        <img src="assets/images/laravel/laravel6.png" alt="Project Image" class="project-image">
+        <img src="assets/images/laravel/laravel7.png" alt="Project Image" class="project-image">
+        <img src="assets/images/laravel/laravel8.png" alt="Project Image" class="project-image">
+
+    </div>
+    <p class="project-description">
+        A web platform built with <strong>Laravel</strong> for students and teachers, 
+        designed to <strong>monitor students’ mental health</strong> using an 
+        <strong>AI-based stress prediction model</strong>. The system includes 
+        <strong>yoga pose analysis using Computer Vision</strong>, 
+        a <strong>wellness blog section</strong>, 
+        a <strong>personalized nutrition module</strong>, 
+        and <strong>secure authentication</strong>.
+    </p>
+    <button class="prev-btn">❮</button>
+    <button class="next-btn">❯</button>
+    <h3 class="ok">Laravel, Python AI, OpenCV, MySQL</h3>
+    <a href="https://github.com/Houssine2001/SmartHealth_Laravel" class="btn blue-btn" target="_blank">GitHub</a>
+</div>
+
+
         </div>
     </section>
 
