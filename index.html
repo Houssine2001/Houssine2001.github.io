@@ -1080,7 +1080,9 @@
       'use strict';
 
       // ==================== CONFIGURATION API ====================
-      const GITHUB_TOKEN = "GITHUB_TOKEN_REMOVED";
+      // ⚠️ IMPORTANT: Ne jamais exposer de tokens API dans le code client
+      // Pour utiliser une vraie API IA, créez un backend (voir CHATBOT_SETUP.md)
+      const GITHUB_TOKEN = ""; // Token retiré pour des raisons de sécurité
       const API_ENDPOINT = "https://models.inference.ai.azure.com/chat/completions";
       const MODEL_NAME = "gpt-4o-mini";
 
