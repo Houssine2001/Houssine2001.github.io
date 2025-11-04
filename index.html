@@ -43,6 +43,7 @@
 
     <!-- Configuration Portfolio (token GitHub) -->
     <script src="assets/config.js"></script>
+    <script src="assets/js/chatbot-nlp-advanced.js"></script>
 
     <title>Houssine Ben Arous | Full Stack Developer Portfolio</title>
 </head>
@@ -652,10 +653,7 @@
                             Smart Contracts
                         </span>
                     </div>
-                    <a href="https://www.credly.com/badges/09f115fa-c8e3-4203-a9ba-aba564f1b8f3" target="_blank" class="certification-link">
-                        View Credential
-                        <i class="uil uil-external-link-alt"></i>
-                    </a>
+                  
                 </div>
             </div>
           </div>
@@ -923,7 +921,7 @@
              <div class="col">
                 <div class="contact-info">
                     <h2><span data-translate="findMe">Find Me</span> <i class="uil uil-corner-right-down"></i></h2>
-                    <p><i class="uil uil-envelope"></i> <span data-translate="email">Email</span>: houssinebenarous48@gmail.com</p>
+                    <p><i class="uil uil-envelope"></i> <span data-translate="email">Email</span>: Houssine.BenArous@esprit.tn</p>
                     <p><i class="uil uil-phone"></i> <span data-translate="phone">Tel</span>: +216 29 678 226</p>
                     
                     <div class="social-media-buttons">
@@ -1231,7 +1229,6 @@
             id: "09f115fa-c8e3-4203-a9ba-aba564f1b8f3",
             skills: ["Blockchain", "Hashgraph Development", "DLT (Distributed Ledger)", "Smart Contracts"],
             description: "Certification en développement Hashgraph et technologies blockchain",
-            url: "https://www.credly.com/badges/09f115fa-c8e3-4203-a9ba-aba564f1b8f3"
           }
         ],
         
@@ -1454,186 +1451,10 @@ Réponds de manière professionnelle, détaillée et amicale en mettant en valeu
         }
       }
 
-      // ==================== FONCTION: RÉPONSE NLP AMÉLIORÉE (FALLBACK) ====================
+      // ==================== FONCTION: RÉPONSE NLP ULTRA-PERFORMANTE ====================
       function generateNLPResponse(userMessage) {
-        const msg = userMessage.toLowerCase();
-        
-        // Intent: Salutation
-        if (msg.match(/^(bonjour|salut|hello|hi|hey|bonsoir|coucou)/i)) {
-          return `👋 Bonjour ! Je suis l'assistant virtuel de **Houssine Ben Arous**, ${PORTFOLIO_DATA.profile.title}.\\n\\nJe peux vous renseigner sur ses **${PORTFOLIO_DATA.projects.length} projets**, **${Object.values(PORTFOLIO_DATA.skills).flat().length}+ compétences techniques**, **${PORTFOLIO_DATA.experiences.length} expériences professionnelles** et **${PORTFOLIO_DATA.certifications.length} certifications**.\\n\\n💡 Posez-moi des questions spécifiques pour des réponses détaillées !`;
-        }
-        
-        // Intent: Tous les projets (réponse COMPLÈTE)
-        if (msg.includes('projet') || msg.includes('portfolio') || msg.includes('réalisation') || msg.includes('travaux')) {
-          let response = `🚀 **TOUS LES PROJETS DE HOUSSINE** (${PORTFOLIO_DATA.projects.length} projets réalisés):\\n\\n`;
-          
-          PORTFOLIO_DATA.projects.forEach((proj, i) => {
-            response += `**${i+1}. ${proj.title}** [${proj.category}]\\n`;
-            response += `📝 ${proj.description.substring(0, 200)}${proj.description.length > 200 ? '...' : ''}\\n`;
-            response += `💻 **Technologies**: ${proj.technologies.join(', ')}\\n`;
-            
-            if (proj.features && proj.features.length > 0) {
-              response += `✨ **Fonctionnalités clés**: ${proj.features.slice(0, 3).join(', ')}\\n`;
-            }
-            
-            if (proj.liveUrl) response += `🔗 [Démo Live](${proj.liveUrl})\\n`;
-            if (proj.githubUrl) response += `📂 [GitHub](${proj.githubUrl})\\n`;
-            if (proj.demoUrl) response += `🎥 [Vidéo Démo](${proj.demoUrl})\\n`;
-            response += '\\n';
-          });
-          
-          return response + "💡 **Demandez-moi des détails sur un projet spécifique !**";
-        }
-        
-        // Intent: Compétences COMPLÈTES
-        if (msg.includes('compétence') || msg.includes('technologie') || msg.includes('stack') || msg.includes('outil') || msg.includes('skill')) {
-          return `💻 **COMPÉTENCES TECHNIQUES COMPLÈTES DE HOUSSINE**\\n\\n` +
-                 `🎨 **Frontend** (${PORTFOLIO_DATA.skills.frontend.length} technologies):\\n${PORTFOLIO_DATA.skills.frontend.join(' • ')}\\n\\n` +
-                 `⚙️ **Backend** (${PORTFOLIO_DATA.skills.backend.length} frameworks):\\n${PORTFOLIO_DATA.skills.backend.join(' • ')}\\n\\n` +
-                 `� **Databases** (${PORTFOLIO_DATA.skills.database.length} systèmes):\\n${PORTFOLIO_DATA.skills.database.join(' • ')}\\n\\n` +
-                 `�📱 **Mobile** (${PORTFOLIO_DATA.skills.mobile.length} technologies):\\n${PORTFOLIO_DATA.skills.mobile.join(' • ')}\\n\\n` +
-                 `🚀 **DevOps & CI/CD** (${PORTFOLIO_DATA.skills.devops.length} outils):\\n${PORTFOLIO_DATA.skills.devops.join(' • ')}\\n\\n` +
-                 `🤖 **Intelligence Artificielle** (${PORTFOLIO_DATA.skills.ai.length} technologies):\\n${PORTFOLIO_DATA.skills.ai.join(' • ')}\\n\\n` +
-                 `🔌 **IoT & Embedded** (${PORTFOLIO_DATA.skills.iot.length} plateformes):\\n${PORTFOLIO_DATA.skills.iot.join(' • ')}\\n\\n` +
-                 `🛠️ **Outils & Technologies** (${PORTFOLIO_DATA.skills.tools.length} tools):\\n${PORTFOLIO_DATA.skills.tools.join(' • ')}\\n\\n` +
-                 `📊 **TOTAL**: ${Object.values(PORTFOLIO_DATA.skills).flat().length}+ technologies maîtrisées !`;
-        }
-        
-        // Intent: Toutes les expériences (réponse COMPLÈTE)
-        if (msg.includes('expérience') || msg.includes('travail') || msg.includes('stage') || msg.includes('emploi') || msg.includes('carrière')) {
-          let response = `💼 **TOUTES LES EXPÉRIENCES PROFESSIONNELLES** (${PORTFOLIO_DATA.experiences.length} postes):\\n\\n`;
-          
-          PORTFOLIO_DATA.experiences.forEach((exp, i) => {
-            response += `**${i+1}. ${exp.title}** - ${exp.company}\\n`;
-            response += `📅 **Période**: ${exp.period}\\n`;
-            response += `📝 **Description**: ${exp.description}\\n`;
-            response += `🛠️ **Technologies**: ${exp.technologies.join(', ')}\\n`;
-            
-            if (exp.achievements && exp.achievements.length > 0) {
-              response += `🏆 **Réalisations**:\\n`;
-              exp.achievements.forEach(achievement => {
-                response += `   • ${achievement}\\n`;
-              });
-            }
-            response += '\\n';
-          });
-          
-          return response + "💡 **Total**: ${PORTFOLIO_DATA.experiences.length} expériences professionnelles enrichissantes !";
-        }
-        
-        // Intent: Toutes les certifications (réponse COMPLÈTE)
-        if (msg.includes('certification') || msg.includes('diplôme') || msg.includes('formation') || msg.includes('certificat')) {
-          let response = `🎓 **TOUTES LES CERTIFICATIONS** (${PORTFOLIO_DATA.certifications.length} certifications obtenues):\\n\\n`;
-          
-          PORTFOLIO_DATA.certifications.forEach((cert, i) => {
-            response += `**${i+1}. ${cert.title}**\\n`;
-            response += `🏢 **Organisme**: ${cert.issuer}\\n`;
-            response += `📅 **Date**: ${cert.date}\\n`;
-            
-            if (cert.skills && cert.skills.length > 0) {
-              response += `💡 **Compétences acquises**: ${cert.skills.join(', ')}\\n`;
-            }
-            
-            if (cert.description) {
-              response += `📝 ${cert.description}\\n`;
-            }
-            
-            if (cert.id) {
-              response += `🆔 ID: ${cert.id}\\n`;
-            }
-            
-            response += `🔗 [Voir la certification](${cert.url})\\n\\n`;
-          });
-          
-          return response + "✅ **Ces certifications démontrent une expertise technique avancée !**";
-        }
-        
-        // Intent: Contact
-        if (msg.includes('contact') || msg.includes('email') || msg.includes('téléphone') || msg.includes('tel') || msg.includes('appel') || msg.includes('linkedin')) {
-          return `📧 **CONTACTEZ HOUSSINE BEN AROUS**:\\n\\n` +
-                 `📮 **Email**: ${PORTFOLIO_DATA.profile.email}\\n` +
-                 `📱 **Téléphone**: ${PORTFOLIO_DATA.profile.phone}\\n` +
-                 `💼 **LinkedIn**: [Profil LinkedIn](${PORTFOLIO_DATA.profile.linkedin})\\n` +
-                 `🐙 **GitHub**: [Houssine2001](${PORTFOLIO_DATA.profile.github})\\n\\n` +
-                 `💡 **N'hésitez pas à le contacter pour toute opportunité professionnelle ou question technique !**`;
-        }
-        
-        // Intent: À propos / Présentation
-        if (msg.includes('qui es') || msg.includes('qui est') || msg.includes('présent') || msg.includes('à propos') || msg.includes('profil') || msg.includes('qui ')) {
-          return `👨‍💻 **HOUSSINE BEN AROUS** - ${PORTFOLIO_DATA.profile.title}\\n\\n` +
-                 `${PORTFOLIO_DATA.profile.description}\\n\\n` +
-                 `🎓 **Formation**: ${PORTFOLIO_DATA.profile.education}\\n\\n` +
-                 `📊 **EN CHIFFRES**:\\n` +
-                 `• 🚀 **${PORTFOLIO_DATA.projects.length} projets** réalisés (Full Stack, Mobile, AI, DevOps)\\n` +
-                 `• 💼 **${PORTFOLIO_DATA.experiences.length} expériences** professionnelles (stages, freelance, CDI)\\n` +
-                 `• 🎓 **${PORTFOLIO_DATA.certifications.length} certifications** obtenues (Google Cloud, AWS, Cisco, Hashgraph)\\n` +
-                 `• 💻 **${Object.values(PORTFOLIO_DATA.skills).flat().length}+ technologies** maîtrisées\\n\\n` +
-                 `🌟 **EXPERTISES CLÉS**:\\n` +
-                 `• Full Stack Development (MERN, Laravel, Django, Symfony)\\n` +
-                 `• Mobile Development (Java Android, Flutter)\\n` +
-                 `• Intelligence Artificielle & Machine Learning\\n` +
-                 `• DevOps & CI/CD (Docker, Jenkins, Kubernetes)\\n` +
-                 `• IoT & Embedded Systems (Arduino, Raspberry Pi)`;
-        }
-        
-        // Intent: Spécialité IA/Machine Learning
-        if (msg.includes('ia') || msg.includes('intelligence artificielle') || msg.includes('machine learning') || msg.includes('ml') || msg.includes('ai')) {
-          return `🤖 **EXPERTISE EN INTELLIGENCE ARTIFICIELLE**\\n\\n` +
-                 `**Technologies maîtrisées**: ${PORTFOLIO_DATA.skills.ai.join(', ')}\\n\\n` +
-                 `**Projets IA réalisés**:\\n` +
-                 `• AI Educational Platform (Transformers, NLP, Whisper)\\n` +
-                 `• Mental Health Platform avec ML (détection émotions)\\n` +
-                 `• Stress Prediction avec Python AI\\n` +
-                 `• Yoga Pose Analysis avec OpenCV\\n` +
-                 `• Face Recognition System (ML + OpenCV)\\n\\n` +
-                 `**Certifications IA**:\\n` +
-                 `• Google Vertex AI Search for Retail (Nov 2024)\\n\\n` +
-                 `💡 Houssine combine l'IA avec le développement Full Stack pour créer des solutions innovantes !`;
-        }
-        
-        // Intent: Mobile Development
-        if (msg.includes('mobile') || msg.includes('android') || msg.includes('flutter') || msg.includes('application mobile')) {
-          return `📱 **EXPERTISE EN DÉVELOPPEMENT MOBILE**\\n\\n` +
-                 `**Technologies**: ${PORTFOLIO_DATA.skills.mobile.join(', ')}\\n\\n` +
-                 `**Applications mobiles développées**:\\n` +
-                 `• FlexFlowGym Mobile (FlutterFlow + Firebase)\\n` +
-                 `• Employee Access Control avec Face Recognition (Flutter)\\n` +
-                 `• Smart Farm Mobile App (Java Android)\\n` +
-                 `• Smart Irrigation Control (Java + Firebase)\\n\\n` +
-                 `**Compétences**:\\n` +
-                 `• Développement natif Android (Java, Android SDK)\\n` +
-                 `• Cross-platform avec Flutter & FlutterFlow\\n` +
-                 `• Intégration Firebase (Auth, Firestore, Cloud)\\n` +
-                 `• REST API integration\\n` +
-                 `• SQLite & stockage local\\n` +
-                 `• UI/UX mobile moderne`;
-        }
-        
-        // Intent: DevOps
-        if (msg.includes('devops') || msg.includes('docker') || msg.includes('jenkins') || msg.includes('ci/cd') || msg.includes('pipeline')) {
-          return `� **EXPERTISE DEVOPS & CI/CD**\\n\\n` +
-                 `**Technologies**: ${PORTFOLIO_DATA.skills.devops.join(', ')}\\n\\n` +
-                 `**Projet principal**: Pipeline DevOps Full Stack\\n` +
-                 `• CI/CD automatisé avec Jenkins\\n` +
-                 `• Conteneurisation Docker\\n` +
-                 `• Analyse de code (SonarQube, JaCoCo)\\n` +
-                 `• Monitoring (Prometheus, Grafana)\\n` +
-                 `• Tests automatisés\\n` +
-                 `• Déploiement automatisé\\n\\n` +
-                 `**Expérience**: Intégration DevOps dans plusieurs projets (ParcTracker SOFRECOM, Educational Platform)`;
-        }
-        
-        // Réponse par défaut améliorée
-        return `🤔 **JE PEUX VOUS AIDER AVEC**:\\n\\n` +
-               `• 🚀 **Les ${PORTFOLIO_DATA.projects.length} projets** de Houssine (Full Stack, Mobile, AI, DevOps)\\n` +
-               `• 💻 **Ses ${Object.values(PORTFOLIO_DATA.skills).flat().length}+ compétences** techniques détaillées\\n` +
-               `• 💼 **Ses ${PORTFOLIO_DATA.experiences.length} expériences** professionnelles complètes\\n` +
-               `• 🎓 **Ses ${PORTFOLIO_DATA.certifications.length} certifications** (Google, AWS, Cisco, Hashgraph)\\n` +
-               `• 📧 **Ses coordonnées** pour le contacter\\n` +
-               `• 👨‍💻 **Son profil** et expertise\\n\\n` +
-               `💡 **Exemples de questions**:\\n` +
-               `"Quels sont tous les projets ?" • "Quelles compétences techniques ?" • "Parle-moi de son expérience" • "Ses certifications ?" • "Comment le contacter ?"\\n\\n` +
-               `Que souhaitez-vous savoir ?`;
+        // Utilise le nouveau système NLP avancé avec intent detection
+        return generateAdvancedNLPResponse(userMessage, PORTFOLIO_DATA);
       }
 
       // ==================== FONCTION PRINCIPALE: CHAT ====================
@@ -1833,11 +1654,44 @@ Réponds de manière professionnelle, détaillée et amicale en mettant en valeu
         }
 
         formatMessage(text) {
-          return text
-            .replace(/\\n/g, '<br>')
-            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-            .replace(/\*(.*?)\*/g, '<em>$1</em>')
-            .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
+          let formatted = text;
+          
+          // 1. Headers (### Titre)
+          formatted = formatted.replace(/^### (.+)$/gm, '<h3 class="chat-header">$1</h3>');
+          formatted = formatted.replace(/^## (.+)$/gm, '<h2 class="chat-header">$1</h2>');
+          formatted = formatted.replace(/^# (.+)$/gm, '<h1 class="chat-header">$1</h1>');
+          
+          // 2. Quotes (> Citation)
+          formatted = formatted.replace(/^> (.+)$/gm, '<blockquote class="chat-quote">$1</blockquote>');
+          
+          // 3. Lists non-ordonnées (• Item ou - Item)
+          formatted = formatted.replace(/^[•\-] (.+)$/gm, '<li class="chat-list-item">$1</li>');
+          
+          // Envelopper les <li> dans des <ul>
+          formatted = formatted.replace(/(<li class="chat-list-item">.*<\/li>\s*)+/g, (match) => {
+            return '<ul class="chat-list">' + match + '</ul>';
+          });
+          
+          // 4. Separateurs horizontaux (---)
+          formatted = formatted.replace(/^---$/gm, '<hr class="chat-separator" />');
+          
+          // 5. Bold et Italic
+          formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+          formatted = formatted.replace(/\*(.*?)\*/g, '<em>$1</em>');
+          
+          // 6. Links [text](url)
+          formatted = formatted.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" class="chat-link">$1 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg></a>');
+          
+          // 7. Line breaks
+          formatted = formatted.replace(/\n/g, '<br>');
+          
+          // 8. Cleanup: supprimer <br> après headers/quotes/lists
+          formatted = formatted.replace(/(<\/h[1-3]>)<br>/g, '$1');
+          formatted = formatted.replace(/(<\/blockquote>)<br>/g, '$1');
+          formatted = formatted.replace(/(<\/ul>)<br>/g, '$1');
+          formatted = formatted.replace(/(<hr [^>]+>)<br>/g, '$1');
+          
+          return formatted;
         }
 
         showTypingIndicator() {
