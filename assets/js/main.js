@@ -615,5 +615,188 @@ window.addEventListener('scroll', debounce(function() {
     scrollActive();
 }, 10));
 
+/* ===== LANGUAGE TRANSLATION SYSTEM ===== */
+const translations = {
+    en: {
+        // Navigation
+        navHome: "Home",
+        navAbout: "About",
+        navExperience: "Experience",
+        navCertifications: "Certifications",
+        navProjects: "Projects",
+        navContact: "Contact",
+        downloadCV: "Download CV",
+        
+        // Hero Section
+        heroGreeting: "Hi, It's",
+        heroRole: "I'm a",
+        heroDescription: "A passionate Software Engineering Student specialized in Full Stack & Mobile Development. I create innovative web and mobile applications with modern technologies.",
+        heroDownload: "Download CV",
+        heroContact: "Contact Me",
+        heroPassionate: "Passionate full stack developer with expertise in mobile and web technologies",
+        
+        // About Section
+        aboutTitle: "About Me",
+        aboutSubtitle: "My introduction",
+        aboutIntro: "I'm a Software Engineering student at ESPRIT, passionate about creating innovative digital solutions. With expertise in Full Stack and Mobile Development, I transform ideas into powerful applications.",
+        
+        // Skills
+        skillsTitle: "Skills & Technologies",
+        webDev: "Web Development",
+        mobileDev: "Mobile Development",
+        devops: "DevOps",
+        oop: "Object-Oriented Programming",
+        
+        // Experience
+        expTitle: "Experience",
+        expSubtitle: "My professional journey",
+        webDevIntern: "Web Developer Intern",
+        fullStackDev: "Full Stack Developer Freelance",
+        finalYearIntern: "Final Year Project Intern",
+        iotDevIntern: "IoT Developer Intern",
+        frontEndIntern: "Front-End Developer Intern",
+        
+        // Certifications
+        certTitle: "Certifications",
+        certSubtitle: "Professional credentials and achievements",
+        viewCredential: "View Credential",
+        certificationId: "Certification ID",
+        issuedBy: "Issued by",
+        issued: "Issued",
+        expires: "Expires",
+        
+        // Projects
+        projectsTitle: "Projects",
+        projectsSubtitle: "Some of my recent work",
+        liveDemo: "Live Demo",
+        github: "GitHub",
+        seeMore: "See More",
+        seeLess: "See Less",
+        
+        // Contact
+        contactTitle: "Get in touch",
+        contactSubtitle: "Do you have a project in your mind, contact me here",
+        findMe: "Find Me",
+        email: "Email",
+        phone: "Tel",
+        linkedin: "LinkedIn",
+        facebook: "Facebook",
+        instagram: "Instagram",
+        
+        // Footer
+        footerAbout: "About",
+        footerProjects: "Projects",
+        footerAchievements: "Achievements",
+        footerExperience: "Experience",
+        footerContact: "Contact"
+    },
+    fr: {
+        // Navigation
+        navHome: "Accueil",
+        navAbout: "propos",
+        navExperience: "Expérience",
+        navCertifications: "Certifications",
+        navProjects: "Projets",
+        navContact: "Contact",
+        downloadCV: "Télécharger CV",
+        
+        // Hero Section
+        heroGreeting: "Bonjour, c'est",
+        heroRole: "Je suis",
+        heroDescription: "Étudiant en Génie Logiciel passionné, spécialisé en Développement Full Stack & Mobile. Je crée des applications web et mobiles innovantes avec des technologies modernes.",
+        heroDownload: "Télécharger CV",
+        heroContact: "Me Contacter",
+        heroPassionate: "Développeur full stack passionné avec une expertise en technologies mobile et web",
+        
+        // About Section
+        aboutTitle: "À propos de moi",
+        aboutSubtitle: "Mon introduction",
+        aboutIntro: "Je suis étudiant en Génie Logiciel à l'ESPRIT, passionné par la création de solutions numériques innovantes. Avec une expertise en développement Full Stack et Mobile, je transforme les idées en applications puissantes.",
+        
+        // Skills
+        skillsTitle: "Compétences & Technologies",
+        webDev: "Développement Web",
+        mobileDev: "Développement Mobile",
+        devops: "DevOps",
+        oop: "Programmation Orientée Objet",
+        
+        // Experience
+        expTitle: "Expérience",
+        expSubtitle: "Mon parcours professionnel",
+        webDevIntern: "Stagiaire Développeur Web",
+        fullStackDev: "Développeur Full Stack Freelance",
+        finalYearIntern: "Stagiaire Projet de Fin d'Études",
+        iotDevIntern: "Stagiaire Développeur IoT",
+        frontEndIntern: "Stagiaire Développeur Front-End",
+        
+        // Certifications
+        certTitle: "Certifications",
+        certSubtitle: "Diplômes professionnels et réalisations",
+        viewCredential: "Voir le diplôme",
+        certificationId: "ID de certification",
+        issuedBy: "Émis par",
+        issued: "Émis le",
+        expires: "Expire le",
+        
+        // Projects
+        projectsTitle: "Projets",
+        projectsSubtitle: "Quelques-uns de mes travaux récents",
+        liveDemo: "Démo en direct",
+        github: "GitHub",
+        seeMore: "Voir plus",
+        seeLess: "Voir moins",
+        
+        // Contact
+        contactTitle: "Entrer en contact",
+        contactSubtitle: "Vous avez un projet en tête, contactez-moi ici",
+        findMe: "Me trouver",
+        email: "Email",
+        phone: "Tél",
+        linkedin: "LinkedIn",
+        facebook: "Facebook",
+        instagram: "Instagram",
+        
+        // Footer
+        footerAbout: "À propos",
+        footerProjects: "Projets",
+        footerAchievements: "Réalisations",
+        footerExperience: "Expérience",
+        footerContact: "Contact"
+    }
+};
+
+// Get current language from localStorage or default to English
+let currentLanguage = localStorage.getItem('preferredLanguage') || 'en';
+
+// Function to switch language
+function switchLanguage(lang) {
+    currentLanguage = lang;
+    localStorage.setItem('preferredLanguage', lang);
+    
+    // Update all elements with data-translate attribute
+    document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+    
+    // Update active language button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-lang') === lang) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+}
+
+// Initialize language on page load
+document.addEventListener('DOMContentLoaded', function() {
+    switchLanguage(currentLanguage);
+});
+
 console.log('🚀 Portfolio Enhanced & Loaded Successfully!');
 

@@ -135,6 +135,23 @@
         font-size: 20px;
     }
     
+    .language-selector {
+        margin-left: 10px;
+        padding: 4px;
+        gap: 2px;
+    }
+    
+    .lang-btn {
+        font-size: 11px;
+        padding: 6px 10px;
+        letter-spacing: 0.3px;
+    }
+    
+    .lang-divider {
+        font-size: 12px;
+        margin: 0 1px;
+    }
+    
     .nav-menu-btn {
         display: block;
     }

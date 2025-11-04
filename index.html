@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/animations.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/chatbot.css">
+    <link rel="stylesheet" href="assets/css/fixes.css">
 
     <!-- --------- FAVICON ---------- -->
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
@@ -52,33 +54,40 @@
         <div class="nav-menu" id="myNavMenu">
             <ul class="nav_menu_list">
                 <li class="nav_list">
-                    <a href="#home" class="nav-link active-link">Home</a>
+                    <a href="#home" class="nav-link active-link" data-translate="navHome">Home</a>
                     <div class="circle"></div>
                 </li>
                 <li class="nav_list">
-                    <a href="#about" class="nav-link">About</a>
+                    <a href="#about" class="nav-link" data-translate="navAbout">About</a>
                     <div class="circle"></div>
                 </li>
                 <li class="nav_list">
-                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#experience" class="nav-link" data-translate="navExperience">Experience</a>
                     <div class="circle"></div>
                 </li>
                 <li class="nav_list">
-                    <a href="#certifications" class="nav-link">Certifications</a>
+                    <a href="#certifications" class="nav-link" data-translate="navCertifications">Certifications</a>
                     <div class="circle"></div>
                 </li>
                 <li class="nav_list">
-                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#projects" class="nav-link" data-translate="navProjects">Projects</a>
                     <div class="circle"></div>
                 </li>
                 <li class="nav_list">
-                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="#contact" class="nav-link" data-translate="navContact">Contact</a>
                     <div class="circle"></div>
                 </li>
             </ul>
         </div>
         <div class="nav-button" data-aos="fade-left" data-aos-duration="1000">
-            <button class="btn" onclick="window.open('./assets/RenderCV_EngineeringResumes_Theme.pdf')">Download CV<i class="uil uil-file-alt"></i></button>
+            <button class="btn" onclick="window.open('./assets/RenderCV_EngineeringResumes_Theme.pdf')">
+                <span data-translate="downloadCV">Download CV</span><i class="uil uil-file-alt"></i>
+            </button>
+        </div>
+        <div class="language-selector" data-aos="fade-left" data-aos-duration="900">
+            <button class="lang-btn active" data-lang="en" onclick="switchLanguage('en')">EN</button>
+            <span class="lang-divider">/</span>
+            <button class="lang-btn" data-lang="fr" onclick="switchLanguage('fr')">FR</button>
         </div>
         <div class="theme-toggle" data-aos="fade-left" data-aos-duration="800">
             <i class="uil uil-moon" id="theme-toggle-icon"></i>
@@ -101,11 +110,11 @@
                 <p>Hello, I'm <br> <span class="gradient-text">Houssine Ben Arous</span> <br><span class="typedText"></span></p>
             </div>
             <div class="featured-text-info" data-aos="fade-up" data-aos-duration="1400">
-                <p>Passionate full stack developer with expertise in mobile and web technologies</p>
+                <p data-translate="heroPassionate">Passionate full stack developer with expertise in mobile and web technologies</p>
             </div>
             <div class="featured-text-btn" data-aos="fade-up" data-aos-duration="1600">
                 <button class="btn btn-primary" onclick="window.open('./assets/RenderCV_EngineeringResumes_Theme.pdf')">
-                    <span class="btn-text">Download CV</span>
+                    <span class="btn-text" data-translate="downloadCV">Download CV</span>
                     <span class="btn-icon"><i class="uil uil-file-alt"></i></span>
                 </button>
             </div>
@@ -147,73 +156,118 @@
        <!-- -------------- ABOUT BOX ---------------- -->
        <section class="section" id="about">
           <div class="top-header">
-            <h1>About Me</h1>
+            <h1 data-translate="aboutTitle">About Me</h1>
           </div>
           <div class="row">
             <div class="col full-width">
                 <div class="about-info">
-                    <h3>My introduction</h3>
-                    <p>My name is Houssine, and I am an Engineering student in Computer Science at ESPRIT, specializing in Full Stack development with a strong interest in Artificial Intelligence and Machine Learning. With a degree in Embedded and Mobile Systems, I am passionate about AI and Machine Learning. 
+                    <h3 data-translate="aboutSubtitle">My introduction</h3>
+                    <p data-translate="aboutIntro">My name is Houssine, and I am an Engineering student in Computer Science at ESPRIT, specializing in Full Stack development with a strong interest in Artificial Intelligence and Machine Learning. With a degree in Embedded and Mobile Systems, I am passionate about AI and Machine Learning. 
                     </p>
                     <div class="about-btn">
-                        <button class="btn" onclick="window.open('./assets/RenderCV_EngineeringResumes_Theme.pdf')">Download CV <i class="uil uil-import"></i></button>
+                        <button class="btn" onclick="window.open('./assets/RenderCV_EngineeringResumes_Theme.pdf')">
+                            <span data-translate="downloadCV">Download CV</span> <i class="uil uil-import"></i>
+                        </button>
                     </div>
                 </div>
             </div>
           </div>
           
-          <!-- Skills section centered under introduction -->
+          <!-- Skills section with modern design -->
           <div class="skills-container">
             <div class="skills-grid">
-                <div class="skills-box">
-                    <div class="skills-header">
-                        <h3>Frontend Development</h3>
+                <!-- Frontend Development Card -->
+                <div class="skills-card" data-aos="fade-up" data-aos-duration="800">
+                    <div class="skill-icon">
+                        <i class="uil uil-browser"></i>
                     </div>
+                    <h3>Frontend Development</h3>
+                    <p>Creating beautiful, responsive and interactive user interfaces</p>
                     <div class="skills-list">
-                        <span>HTML</span>
-                        <span>CSS</span>
+                        <span>HTML5</span>
+                        <span>CSS3</span>
                         <span>Bootstrap</span>
                         <span>JavaScript</span>
-                        <span>React</span>
+                        <span>React.js</span>
                         <span>Angular</span>
+                        <span>TypeScript</span>
                     </div>
                 </div>
-                <div class="skills-box">
-                    <div class="skills-header">
-                        <h3>Backend Development</h3>
+
+                <!-- Backend Development Card -->
+                <div class="skills-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <div class="skill-icon">
+                        <i class="uil uil-server"></i>
                     </div>
+                    <h3>Backend Development</h3>
+                    <p>Building robust and scalable server-side applications</p>
                     <div class="skills-list">
                         <span>PHP</span>
-                        <span>JAVA</span>
-                        <span>Express</span>
+                        <span>Java</span>
+                        <span>Python</span>
+                        <span>Node.js</span>
+                        <span>Express.js</span>
+                        <span>Laravel</span>
+                        <span>Django</span>
                         <span>Symfony</span>
                         <span>Spring Boot</span>
                     </div>
                 </div>
-                <div class="skills-box">
-                    <div class="skills-header">
-                        <h3>Database</h3>
+
+                <!-- Database Card -->
+                <div class="skills-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="skill-icon">
+                        <i class="uil uil-database"></i>
                     </div>
+                    <h3>Database Management</h3>
+                    <p>Designing and optimizing data storage solutions</p>
                     <div class="skills-list">
                         <span>MySQL</span>
                         <span>MongoDB</span>
                         <span>PostgreSQL</span>
+                        <span>Firebase</span>
+                        <span>SQLite</span>
                     </div>
                 </div>
-                <div class="skills-box">
-                    <div class="skills-header">
-                        <h3>Mobile Development</h3>
+
+                <!-- Mobile Development Card -->
+                <div class="skills-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                    <div class="skill-icon">
+                        <i class="uil uil-mobile-android"></i>
                     </div>
+                    <h3>Mobile Development</h3>
+                    <p>Developing native and cross-platform mobile apps</p>
                     <div class="skills-list">
-                        <span>JAVA</span>
+                        <span>Java Android</span>
                         <span>Flutter</span>
                         <span>FlutterFlow</span>
+                        <span>Firebase</span>
                     </div>
                 </div>
-                <div class="skills-box">
-                    <div class="skills-header">
-                        <h3>DevOps</h3>
+
+                <!-- AI & Machine Learning Card -->
+                <div class="skills-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                    <div class="skill-icon">
+                        <i class="uil uil-brain"></i>
                     </div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Implementing intelligent solutions with AI/ML</p>
+                    <div class="skills-list">
+                        <span>Machine Learning</span>
+                        <span>Computer Vision</span>
+                        <span>NLP</span>
+                        <span>Generative AI</span>
+                        <span>OpenCV</span>
+                    </div>
+                </div>
+
+                <!-- DevOps & CI/CD Card -->
+                <div class="skills-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
+                    <div class="skill-icon">
+                        <i class="uil uil-docker"></i>
+                    </div>
+                    <h3>DevOps & CI/CD</h3>
+                    <p>Automating deployment and monitoring systems</p>
                     <div class="skills-list">
                         <span>Docker</span>
                         <span>Jenkins</span>
@@ -221,16 +275,40 @@
                         <span>SonarQube</span>
                         <span>Grafana</span>
                         <span>Prometheus</span>
+                        <span>JaCoCo</span>
+                        <span>Git</span>
                     </div>
                 </div>
-                <div class="skills-box">
-                    <div class="skills-header">
-                        <h3>Object-Oriented Programming</h3>
+
+                <!-- IoT & Embedded Systems Card -->
+                <div class="skills-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
+                    <div class="skill-icon">
+                        <i class="uil uil-microchip"></i>
                     </div>
+                    <h3>IoT & Embedded</h3>
+                    <p>Creating smart connected devices and systems</p>
                     <div class="skills-list">
-                        <span>C</span>
-                        <span>JAVA</span>
-                        <span>Python</span>
+                        <span>Arduino</span>
+                        <span>Raspberry Pi</span>
+                        <span>IoT Systems</span>
+                        <span>Sensors</span>
+                        <span>MQTT</span>
+                    </div>
+                </div>
+
+                <!-- Tools & Technologies Card -->
+                <div class="skills-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="700">
+                    <div class="skill-icon">
+                        <i class="uil uil-wrench"></i>
+                    </div>
+                    <h3>Tools & Technologies</h3>
+                    <p>Professional development tools and workflows</p>
+                    <div class="skills-list">
+                        <span>Git & GitHub</span>
+                        <span>Postman</span>
+                        <span>REST API</span>
+                        <span>JWT</span>
+                        <span>VS Code</span>
                     </div>
                 </div>
             </div>
@@ -242,8 +320,8 @@
        <!-- -------------- EXPERIENCE SECTION ---------------- -->
        <section class="section" id="experience">
           <div class="top-header">
-            <h1>Experience</h1>
-            <span>My professional journey</span>
+            <h1 data-translate="expTitle">Experience</h1>
+            <span data-translate="expSubtitle">My professional journey</span>
           </div>
           <div class="timeline-container">
             <!-- Experience item 1 -->
@@ -273,28 +351,35 @@
             </div>
 
             <!-- Experience item 2 -->
-            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">
-                    <span>Nov 2024 - Present</span>
-                </div>
-                <div class="timeline-content">
-                    <h3>Full Stack Developer Freelance</h3>
-                    <h4><i class="uil uil-building"></i> SMART FARM</h4>
-                    <ul>
-                        <li><i class="uil uil-check-circle"></i> Development and maintenance of web applications using MERN stack for agricultural management.</li>
-                        <li><i class="uil uil-check-circle"></i> Collaboration with the team to design and implement features, improving user experience and performance.</li>
-                        <li><i class="uil uil-check-circle"></i> Technologies: MongoDB, PostgreSQL, Express.js, React.js, Node.js, REST API, Git.</li>
-                    </ul>
-                    <div class="tech-stack">
-                        <span>MongoDB</span>
-                        <span>Express</span>
-                        <span>React</span>
-                        <span>Node.js</span>
-                        <span>Git</span>
-                    </div>
-                </div>
-            </div>
+           
+<div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+    <div class="timeline-dot"></div>
+    <div class="timeline-date">
+        <span>Nov 2024 - Present</span>
+    </div>
+    <div class="timeline-content">
+        <h3>Full Stack Developer Freelance</h3>
+        <h4><i class="uil uil-building"></i> SMART FARM</h4>
+        <ul>
+            <li><i class="uil uil-check-circle"></i> Development and maintenance of web applications using MERN stack for agricultural management.</li>
+            <li><i class="uil uil-check-circle"></i> Collaboration with the team to design and implement features, improving user experience and system performance.</li>
+            <li><i class="uil uil-check-circle"></i> Improvement and feature development for the Smart Farm mobile app using React Native including UI/UX redesign and new functional modules.</li>
+            <li><i class="uil uil-check-circle"></i> Integration of IoT systems for smart irrigation and sensor monitoring using ESP32 and Arduino.</li>
+            <li><i class="uil uil-check-circle"></i> Technologies: MongoDB, PostgreSQL, Express.js, React.js, React Native, Node.js, REST API, IoT (ESP32, Arduino), Git.</li>
+        </ul>
+        <div class="tech-stack">
+            <span>MongoDB</span>
+            <span>Express</span>
+            <span>React</span>
+            <span>React Native</span>
+            <span>Node.js</span>
+            <span>IoT</span>
+            <span>ESP32</span>
+            <span>Arduino</span>
+            <span>Git</span>
+        </div>
+    </div>
+</div>
 
             <!-- Experience item 2 -->
             <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
@@ -393,8 +478,8 @@
        <!-- -------------- CERTIFICATIONS SECTION ---------------- -->
        <section class="section" id="certifications">
           <div class="top-header">
-            <h1>Certifications</h1>
-            <span>Professional credentials and achievements</span>
+            <h1 data-translate="certTitle">Certifications</h1>
+            <span data-translate="certSubtitle">Professional credentials and achievements</span>
           </div>
           <div class="certifications-container">
             <div class="certifications-grid">
@@ -481,6 +566,94 @@
                         <i class="uil uil-external-link-alt"></i>
                     </a>
                 </div>
+
+                <!-- AWS Cloud Practitioner Certification -->
+                <div class="certification-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="certification-header">
+                        <div class="certification-badge">
+                            <img src="https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png" alt="AWS Cloud Practitioner Badge">
+                        </div>
+                        <div class="certification-info">
+                            <h3>AWS Certified Cloud Practitioner</h3>
+                            <div class="certification-issuer">
+                                <i class="uil uil-cloud"></i>
+                                <span>Amazon Web Services (AWS)</span>
+                            </div>
+                            <div class="certification-date">
+                                <i class="uil uil-calendar-alt"></i>
+                                <span>October 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certification-skills">
+                        <span class="certification-skill">
+                            <i class="uil uil-cloud"></i>
+                            Cloud Computing
+                        </span>
+                        <span class="certification-skill">
+                            <i class="uil uil-server"></i>
+                            AWS Services (EC2, S3, Lambda)
+                        </span>
+                        <span class="certification-skill">
+                            <i class="uil uil-shield-check"></i>
+                            Security & Best Practices
+                        </span>
+                        <span class="certification-skill">
+                            <i class="uil uil-chart-growth"></i>
+                            Scalable Solutions
+                        </span>
+                    </div>
+                    <a href="https://lnkd.in/e4AaH9hz" target="_blank" class="certification-link">
+                        View Credential
+                        <i class="uil uil-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <!-- Hashgraph Developer Certification -->
+                <div class="certification-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="certification-header">
+                        <div class="certification-badge">
+                            <img src="assets/images/headera.jpg" alt="Hashgraph Developer Badge">
+                        </div>
+                        <div class="certification-info">
+                            <h3>Attendance Hashgraph Developer</h3>
+                            <div class="certification-issuer">
+                                <i class="uil uil-link-h"></i>
+                                <span>The Hashgraph Association</span>
+                            </div>
+                            <div class="certification-date">
+                                <i class="uil uil-calendar-alt"></i>
+                                <span>October 2025 - November 2025</span>
+                            </div>
+                            <div class="certification-id">
+                                <i class="uil uil-file-check-alt"></i>
+                                <span style="font-size: 11px;">ID: 09f115fa-c8e3-4203-a9ba-aba564f1b8f3</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certification-skills">
+                        <span class="certification-skill">
+                            <i class="uil uil-bitcoin"></i>
+                            Blockchain
+                        </span>
+                        <span class="certification-skill">
+                            <i class="uil uil-brackets-curly"></i>
+                            Hashgraph Development
+                        </span>
+                        <span class="certification-skill">
+                            <i class="uil uil-shield-check"></i>
+                            DLT (Distributed Ledger)
+                        </span>
+                        <span class="certification-skill">
+                            <i class="uil uil-code"></i>
+                            Smart Contracts
+                        </span>
+                    </div>
+                    <a href="https://www.credly.com/badges/09f115fa-c8e3-4203-a9ba-aba564f1b8f3" target="_blank" class="certification-link">
+                        View Credential
+                        <i class="uil uil-external-link-alt"></i>
+                    </a>
+                </div>
             </div>
           </div>
        </section>
@@ -491,14 +664,16 @@
 
        <section class="section" id="projects">
         <div class="top-header">
-            <h1>Projects</h1>
-                  <span>Some of my recent work</span>
+            <h1 data-translate="projectsTitle">Projects</h1>
+            <span data-translate="projectsSubtitle">Some of my recent work</span>
 
         </div>
         <div class="project-container">
     
+          
+
             <!-- Application Web de Gestion de Gym -->
-            <div class="project-box gradient-border" data-aos="fade-up" data-aos-duration="1200">
+            <div class="project-box gradient-border" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
                 <h2>Application Web de Gestion de Gym</h2>
                 <div class="image-slider">
                     <img src="assets/images/web.jpeg" alt="Image du Projet" class="project-image active">
@@ -511,11 +686,15 @@
                 <button class="prev-btn">❮</button>
                 <button class="next-btn">❯</button>
                 <h3 class="ok">Symfony, Twig, MySQL, Python, FastApi</h3>
-                <a href="https://github.com/Houssine2001/FlexFlowGym" class="btn blue-btn" target="_blank">GitHub</a>
+                <div class="button-container">
+                    <a href="https://github.com/Houssine2001/FlexFlowGym" class="btn blue-btn" target="_blank">
+                        <i class="uil uil-github-alt"></i> <span data-translate="github">GitHub</span>
+                    </a>
+                </div>
             </div>
     
             <!-- Application de Bureau de Gestion de Gym -->
-            <div class="project-box gradient-border" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+            <div class="project-box gradient-border" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
                 <h2>Application Desktop de Gestion de Gym</h2>
                 <div class="image-slider">
                     <img src="assets/images/1.PNG" alt="Image du Projet" class="project-image active">
@@ -526,11 +705,15 @@
                 <button class="prev-btn">❮</button>
                 <button class="next-btn">❯</button>
                 <h3 class="ok">Java, MySQL</h3>
-                <a href="https://github.com/Houssine2001/FlexFlowGym-Desktop" class="btn blue-btn" target="_blank">GitHub</a>
+                <div class="button-container">
+                    <a href="https://github.com/Houssine2001/FlexFlowGym-Desktop" class="btn blue-btn" target="_blank">
+                        <i class="uil uil-github-alt"></i> <span data-translate="github">GitHub</span>
+                    </a>
+                </div>
             </div>
     
             <!-- Application Mobile de Gestion de Gym -->
-            <div class="project-box gradient-border" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+            <div class="project-box gradient-border" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
                 <h2>Application Mobile de Gestion de Gym</h2>
                 <div class="image-slider">
                     <img src="assets/images/m1.jpg" alt="Image du Projet" class="project-imageMobile active">
@@ -540,11 +723,15 @@
                 <button class="prev-btn">❮</button>
                 <button class="next-btn">❯</button>
                 <h3 class="ok">FlutterFlow, Firebase</h3>
-                <a href="https://app.flutterflow.io/share/flexflow-ptrkup" class="btn blue-btn" target="_blank">Demo</a>
+                <div class="button-container">
+                    <a href="https://app.flutterflow.io/share/flexflow-ptrkup" class="btn blue-btn" target="_blank">
+                        <i class="uil uil-external-link-alt"></i> <span data-translate="liveDemo">Demo</span>
+                    </a>
+                </div>
             </div>
     
             <!-- Employee Access Control System Mobile App -->
-            <div class="project-box gradient-border" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
+            <div class="project-box gradient-border" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="800">
                 <h2>Employee Access Control System Mobile App</h2>
                 <div class="image-slider">
                     <img src="assets/images/c3.jpeg" alt="Project Image" class="project-imageMobile active">
@@ -559,8 +746,12 @@
                 <button class="next-btn">❯</button>
                 <h3 class="ok">Flutter, MySQL</h3>
                 <div class="button-container">
-                    <a href="https://github.com/Houssine2001/Application-mobile-flutter-controle-d-access" class="btn blue-btn" target="_blank">GitHub</a>
-                    <a href="https://youtube.com/shorts/dzpI9qUM8e4?feature=share" class="btn blue-btn" target="_blank">Demo</a>
+                    <a href="https://github.com/Houssine2001/Application-mobile-flutter-controle-d-access" class="btn blue-btn" target="_blank">
+                        <i class="uil uil-github-alt"></i> <span data-translate="github">GitHub</span>
+                    </a>
+                    <button class="btn blue-btn video-btn" data-video-id="dzpI9qUM8e4">
+                        <i class="uil uil-play"></i> <span data-translate="watchVideo">Voir la vidéo</span>
+                    </button>
                 </div>
             </div>
     
@@ -600,10 +791,15 @@
                 <button class="next-btn">❯</button>
                 <h3 class="ok">React • Node.js • MongoDB • Machine Learning • Jenkins • Docker</h3>
                 <div class="button-container">
-                    <a href="https://github.com/Taha-Yassine-Hadded/UniMindCare-PI" class="btn blue-btn" target="_blank">GitHub</a>
-                    <a href="https://www.youtube.com/watch?v=INXtK6vuf2c" class="btn blue-btn" target="_blank">Demo</a>
-
-                    <a href="https://fluffy-ganache-bbac91.netlify.app/login" class="btn blue-btn" target="_blank">Live</a>
+                    <a href="https://github.com/Taha-Yassine-Hadded/UniMindCare-PI" class="btn blue-btn" target="_blank">
+                        <i class="uil uil-github-alt"></i> <span data-translate="github">GitHub</span>
+                    </a>
+                    <button class="btn blue-btn video-btn" data-video-id="INXtK6vuf2c">
+                        <i class="uil uil-play"></i> <span data-translate="watchVideo">Voir la vidéo</span>
+                    </button>
+                    <a href="https://fluffy-ganache-bbac91.netlify.app/login" class="btn blue-btn" target="_blank">
+                        <i class="uil uil-external-link-alt"></i> Live
+                    </a>
                 </div>
             </div>
 
@@ -634,8 +830,51 @@
     <button class="prev-btn">❮</button>
     <button class="next-btn">❯</button>
     <h3 class="ok">Laravel, Python AI, OpenCV, MySQL</h3>
-    <a href="https://github.com/Houssine2001/SmartHealth_Laravel" class="btn blue-btn" target="_blank">GitHub</a>
+    <div class="button-container">
+        <a href="https://github.com/Houssine2001/SmartHealth_Laravel" class="btn blue-btn" target="_blank">
+            <i class="uil uil-github-alt"></i> <span data-translate="github">GitHub</span>
+        </a>
+    </div>
 </div>
+
+
+
+
+
+
+  <!-- AI Educational Platform Django -->
+            <div class="project-box gradient-border" data-aos="fade-up" data-aos-duration="1200">
+                <h2>AI Educational Platform - Exercise Generator</h2>
+                <div class="image-slider">
+                    <img src="assets/images/django/django.png" alt="Django Educational Platform" class="project-image active">
+                    <img src="assets/images/django/edu2.png" alt="Django Educational Platform" class="project-image">
+                    <img src="assets/images/django/educ3.png" alt="Django Educational Platform" class="project-image">
+                    <img src="assets/images/django/educ4.png" alt="Django Educational Platform" class="project-image">
+                    <img src="assets/images/django/image.png" alt="Django Educational Platform" class="project-image">
+                </div>
+                <p class="project-description">
+                    An AI-powered educational platform designed for students and teachers. Features include: 
+                    <strong>Exercise Generator</strong> (automatic generation of MCQs, true/false, fill-in-the-blank exercises from course documents), 
+                    <strong>Centralized Resources</strong> (intelligent document management, PDF content extraction, key concept structuring, and video summary generation), 
+                    <strong>Analytic Dashboard</strong> (performance tracking, usage statistics, student stress management, results analysis, and AI-based pedagogical recommendations), 
+                    and <strong>Evaluation Module</strong> (test creation and export, exercise validation, and complete exam management integration). 
+                    Built with Python, Django, MongoDB, and integrating AI & NLP models through Transformers, Whisper, and scikit-learn.
+                </p>
+                <button class="prev-btn">❮</button>
+                <button class="next-btn">❯</button>
+                <h3 class="ok">Python, Django, MongoDB, AI/NLP, Transformers, Whisper, scikit-learn</h3>
+                <div class="button-container">
+                    <a href="https://educationia-django-7mub.onrender.com/accounts/login/" class="btn blue-btn" target="_blank">
+                        <i class="uil uil-external-link-alt"></i> <span data-translate="liveDemo">Live Demo</span>
+                    </a>
+                    <a href="https://github.com/Houssine2001" class="btn blue-btn" target="_blank">
+                        <i class="uil uil-github-alt"></i> <span data-translate="github">GitHub</span>
+                    </a>
+                    <button class="btn blue-btn video-btn" data-video-id="b5bkAaRFgPI">
+                        <i class="uil uil-play"></i> <span data-translate="watchVideo">Voir la vidéo</span>
+                    </button>
+                </div>
+            </div>
 
 
         </div>
@@ -674,15 +913,15 @@
     
        <section class="section" id="contact">
           <div class="top-header">
-            <h1 class="typing-animation">Get in touch</h1>
-            <span>Do you have a project in your mind, contact me here</span>
+            <h1 class="typing-animation" data-translate="contactTitle">Get in touch</h1>
+            <span data-translate="contactSubtitle">Do you have a project in your mind, contact me here</span>
           </div>
           <div class="row">
              <div class="col">
                 <div class="contact-info">
-                    <h2>Find Me <i class="uil uil-corner-right-down"></i></h2>
-                    <p><i class="uil uil-envelope"></i> Email: houssinebenarous48@gmail.com</p>
-                    <p><i class="uil uil-phone"></i> Tel: +216 29 678 226</p>
+                    <h2><span data-translate="findMe">Find Me</span> <i class="uil uil-corner-right-down"></i></h2>
+                    <p><i class="uil uil-envelope"></i> <span data-translate="email">Email</span>: houssinebenarous48@gmail.com</p>
+                    <p><i class="uil uil-phone"></i> <span data-translate="phone">Tel</span>: +216 29 678 226</p>
                     
                     <div class="social-media-buttons">
                         <a href="https://www.linkedin.com/in/houssine-ben-arous-10b440253/" target="_blank" rel="noopener noreferrer" class="social-btn linkedin">
@@ -831,6 +1070,869 @@
                     }
                 }
             });
+        });
+    </script>
+
+    <!-- --------- CHATBOT IA --------- -->
+    <script>
+    // ==================== PORTFOLIO CHATBOT AVEC DEEPSEEK-V3 ====================
+    (function() {
+      'use strict';
+
+      // ==================== CONFIGURATION API ====================
+      const GITHUB_TOKEN = "GITHUB_TOKEN_REMOVED";
+      const API_ENDPOINT = "https://models.inference.ai.azure.com/chat/completions";
+      const MODEL_NAME = "gpt-4o-mini";
+
+      // ==================== DONNÉES COMPLÈTES DU PORTFOLIO ====================
+      const PORTFOLIO_DATA = {
+        profile: {
+          name: "Houssine Ben Arous",
+          title: "Full Stack Developer & Mobile Developer",
+          education: "Software Engineering Student at ESPRIT",
+          email: "houssine.benarous@esprit.tn",
+          phone: "+216 29 678 226",
+          linkedin: "https://www.linkedin.com/in/houssine-ben-arous-10b440253/",
+          github: "https://github.com/Houssine2001",
+          description: "Développeur Full Stack passionné avec expertise en développement mobile et web, spécialisé dans les technologies MERN, Laravel, Django, Flutter et DevOps"
+        },
+        
+        skills: {
+          frontend: ["React.js", "Next.js", "Angular", "HTML5", "CSS3", "JavaScript", "TypeScript", "Twig"],
+          backend: ["Node.js", "Express.js", "Laravel", "Django", "Python", "PHP", "Spring Boot", "Symfony", "FastAPI"],
+          database: ["MySQL", "MongoDB", "PostgreSQL", "Firebase"],
+          mobile: ["Java", "Android SDK", "Flutter", "FlutterFlow"],
+          devops: ["Docker", "Jenkins", "Nexus", "SonarQube", "Grafana", "Prometheus", "JaCoCo", "CI/CD"],
+          ai: ["Machine Learning", "Computer Vision", "NLP", "Generative AI", "Transformers", "Whisper", "scikit-learn", "OpenCV"],
+          iot: ["Arduino", "Raspberry Pi", "IoT Systems"],
+          tools: ["Git", "GitHub", "Postman", "JasperReports", "REST API", "JWT"]
+        },
+        
+        experiences: [
+          {
+            title: "Full Stack Web Developer Intern",
+            company: "SOFRECOM (Tunis)",
+            period: "Jul 2025 - Aug 2025",
+            description: "Développement complet de ParcTracker, une application de gestion de parc automobile avec architecture MERN. Implémentation des fonctionnalités de suivi des véhicules, gestion des maintenances, et tableau de bord analytique. Intégration de Docker et Jenkins pour l'automatisation du déploiement.",
+            technologies: ["MongoDB", "Express.js", "React.js", "Node.js", "Docker", "Jenkins", "Git"],
+            achievements: [
+              "Réduction de 40% du temps de gestion des véhicules",
+              "Pipeline CI/CD automatisé avec Jenkins",
+              "Interface utilisateur responsive et moderne"
+            ]
+          },
+          {
+            title: "Full Stack Developer Freelance",
+            company: "SMART FARM",
+            period: "Nov 2024 - Present",
+            description: "Développement d'applications web pour la gestion agricole intelligente utilisant la stack MERN et PostgreSQL. Création de tableaux de bord pour le suivi des cultures, gestion des stocks, et optimisation des ressources.",
+            technologies: ["MongoDB", "PostgreSQL", "Express.js", "React.js", "Node.js"],
+            achievements: [
+              "Optimisation de la gestion des ressources agricoles",
+              "Interface intuitive pour les agriculteurs",
+              "Système de notifications en temps réel"
+            ]
+          },
+          {
+            title: "Web Developer Intern",
+            company: "SMART FARM",
+            period: "Jun 2024 - Aug 2024",
+            description: "Tests, débogage et correction d'erreurs dans l'application web de gestion agricole pour améliorer la stabilité et les performances. Optimisation de l'interface utilisateur (UX/UI) pour une navigation plus fluide et une meilleure expérience utilisateur. Amélioration de la fiabilité du site et réduction significative du temps de chargement.",
+            technologies: ["React.js", "Express.js", "PostgreSQL", "UX/UI Design"],
+            achievements: [
+              "Réduction de 35% du temps de chargement",
+              "Amélioration de l'expérience utilisateur",
+              "Correction de bugs critiques"
+            ]
+          },
+          {
+            title: "Mobile Developer Freelance",
+            company: "SMART FARM",
+            period: "Oct 2024 - Nov 2024",
+            description: "Développement d'applications mobiles Android natives pour la gestion agricole. Intégration avec API REST, stockage local SQLite, et synchronisation des données en temps réel.",
+            technologies: ["Java", "Android SDK", "SQLite", "REST API"],
+            achievements: [
+              "Application mobile performante et réactive",
+              "Synchronisation offline/online des données",
+              "Interface adaptée aux conditions terrain"
+            ]
+          },
+          {
+            title: "Final Year Project Intern",
+            company: "OACA (Office de l'Aviation Civile et des Aéroports)",
+            period: "Feb 2023 - May 2023",
+            description: "Développement d'une application web et mobile de contrôle d'accès basée sur la reconnaissance faciale pour sécuriser les zones sensibles des aéroports. Utilisation de Machine Learning pour la détection et identification faciale avec Raspberry Pi.",
+            technologies: ["PHP", "MySQL", "Flutter", "Raspberry Pi", "Machine Learning", "OpenCV"],
+            achievements: [
+              "Système de reconnaissance faciale précis à 95%",
+              "Sécurisation des zones sensibles d'aéroport",
+              "Application mobile et web synchronisées"
+            ]
+          },
+          {
+            title: "IoT Developer Intern",
+            company: "Smart Soft Pro",
+            period: "Jan 2023",
+            description: "Développement d'un système d'irrigation intelligent contrôlé via application mobile, réduisant la consommation d'eau de 20%. Intégration Arduino avec capteurs d'humidité et contrôle à distance via Firebase.",
+            technologies: ["Arduino", "Java", "Firebase", "IoT", "Sensors"],
+            achievements: [
+              "Réduction de 20% de la consommation d'eau",
+              "Contrôle à distance via application mobile",
+              "Automatisation intelligente de l'irrigation"
+            ]
+          },
+          {
+            title: "Front-End Developer Intern",
+            company: "Institut Poincaré Carthage",
+            period: "Sep 2021",
+            description: "Développement complet du front-end d'un site web éducatif. Création d'interfaces responsives et interactives avec HTML5, CSS3 et JavaScript.",
+            technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+            achievements: [
+              "Site web responsive et moderne",
+              "Interface utilisateur intuitive",
+              "Performance optimisée"
+            ]
+          }
+        ],
+        
+        certifications: [
+          {
+            title: "Google Vertex AI Search for Retail",
+            issuer: "Google Cloud",
+            date: "November 2024",
+            skills: ["Vertex AI", "Machine Learning", "Retail AI", "Cloud Computing"],
+            description: "Certification avancée en IA Google Cloud pour les solutions de recherche retail",
+            url: "https://www.cloudskillsboost.google/public_profiles/d0a53da2-f8c8-41ac-b7c0-0ad72d9da6e0/badges/11661730"
+          },
+          {
+            title: "AWS Cloud Technical Essentials (AWS Certified Cloud Practitioner)",
+            issuer: "Amazon Web Services (AWS)",
+            date: "October 2024",
+            skills: ["Cloud Computing", "AWS Services (EC2, S3, Lambda)", "Security & Best Practices", "Scalable Solutions"],
+            description: "Certification AWS couvrant les fondamentaux du cloud computing et les services AWS essentiels",
+            url: "https://lnkd.in/e4AaH9hz"
+          },
+          {
+            title: "Introduction to IoT",
+            issuer: "Cisco Networking Academy",
+            date: "January 2023",
+            skills: ["IoT", "Networking", "Embedded Systems", "Protocols"],
+            description: "Certification Cisco sur les fondamentaux de l'Internet des Objets",
+            url: "https://www.credly.com/badges/c1a06106-eb2e-4f08-9db9-ecc9b364ca57"
+          },
+          {
+            title: "Attendance Hashgraph Developer",
+            issuer: "The Hashgraph Association",
+            date: "October 2025 - November 2025",
+            id: "09f115fa-c8e3-4203-a9ba-aba564f1b8f3",
+            skills: ["Blockchain", "Hashgraph Development", "DLT (Distributed Ledger)", "Smart Contracts"],
+            description: "Certification en développement Hashgraph et technologies blockchain",
+            url: "https://www.credly.com/badges/09f115fa-c8e3-4203-a9ba-aba564f1b8f3"
+          }
+        ],
+        
+        projects: [
+          {
+            title: "AI Educational Platform - Exercise Generator",
+            category: "Full Stack Web + AI",
+            description: "Plateforme éducative alimentée par l'IA conçue pour les étudiants et enseignants. Génération automatique d'exercices (QCM, vrai/faux, à trous) à partir de documents de cours. Ressources centralisées avec gestion intelligente des documents, extraction de contenu PDF, structuration des concepts clés, et génération de résumés vidéo. Dashboard analytique pour le suivi des performances, statistiques d'utilisation, gestion du stress étudiant, analyse des résultats et recommandations pédagogiques basées sur l'IA. Module d'évaluation avec création et export de tests, validation d'exercices et intégration complète de gestion d'examens.",
+            technologies: ["Python", "Django", "MongoDB", "AI/NLP", "Transformers", "Whisper", "scikit-learn"],
+            features: [
+              "Génération automatique d'exercices par IA",
+              "Extraction et structuration de contenu PDF",
+              "Dashboard analytique avancé",
+              "Gestion du stress étudiant",
+              "Résumés vidéo automatiques",
+              "Système d'évaluation complet"
+            ],
+            liveUrl: "https://educationia-django-7mub.onrender.com/accounts/login/",
+            githubUrl: "https://github.com/Houssine2001",
+            videoUrl: "assets/videos/VideoFianlDjango.mp4"
+          },
+          {
+            title: "FlexFlowGym - Application Web de Gestion de Gym",
+            category: "Full Stack Web",
+            description: "FlexFlowGym optimise la gestion des abonnements, des plannings et des équipements dans les centres de fitness. Permet un gain de temps administratif et une gestion des stocks pilotée par l'IA. Interface d'administration complète pour gérer les membres, coachs, cours collectifs, équipements et statistiques.",
+            technologies: ["Symfony", "Twig", "MySQL", "Python", "FastAPI", "AI"],
+            features: [
+              "Gestion complète des membres et abonnements",
+              "Planning des cours et réservations",
+              "Gestion d'inventaire avec IA",
+              "Statistiques et rapports détaillés",
+              "Interface admin moderne"
+            ],
+            githubUrl: "https://github.com/Houssine2001/FlexFlowGym"
+          },
+          {
+            title: "FlexFlowGym - Application Desktop de Gestion de Gym",
+            category: "Desktop Application",
+            description: "Application de bureau Java pour la gestion complète d'une salle de sport. Gestion des membres, plannings, séances d'entraînement, avec stockage MySQL. Interface riche avec JavaFX et génération de rapports avec JasperReports.",
+            technologies: ["Java", "JavaFX", "MySQL", "JasperReports"],
+            features: [
+              "Gestion des membres et abonnements",
+              "Planning des séances et coachs",
+              "Suivi des entraînements",
+              "Génération de rapports PDF",
+              "Interface desktop moderne"
+            ],
+            githubUrl: "https://github.com/Houssine2001/FlexFlowGym-Desktop"
+          },
+          {
+            title: "FlexFlowGym - Application Mobile",
+            category: "Mobile Application",
+            description: "Application mobile développée avec FlutterFlow et Firebase pour la gestion des abonnements et entraînements de gym, accessible partout. Interface moderne et intuitive pour les membres du gym.",
+            technologies: ["FlutterFlow", "Firebase", "Cloud Firestore", "Authentication"],
+            features: [
+              "Suivi des séances personnalisées",
+              "Réservation de cours en ligne",
+              "Notifications push",
+              "Profil utilisateur complet",
+              "Historique d'entraînements"
+            ],
+            liveUrl: "https://app.flutterflow.io/share/flexflow-ptrkup"
+          },
+          {
+            title: "Employee Access Control System Mobile App",
+            category: "Mobile Application + IoT",
+            description: "Application mobile de contrôle d'accès avec reconnaissance faciale pour la gestion sécurisée des employés dans les zones sensibles comme les aéroports. Intégration avec système de reconnaissance faciale basé sur Machine Learning.",
+            technologies: ["Flutter", "MySQL", "Machine Learning", "Face Recognition", "PHP Backend"],
+            features: [
+              "Reconnaissance faciale en temps réel",
+              "Contrôle d'accès sécurisé",
+              "Historique des accès",
+              "Alertes de sécurité",
+              "Interface mobile intuitive"
+            ],
+            githubUrl: "https://github.com/Houssine2001/Application-mobile-flutter-controle-d-access",
+            demoUrl: "https://youtube.com/shorts/dzpI9qUM8e4?feature=share"
+          },
+          {
+            title: "Pipeline DevOps Full Stack",
+            category: "DevOps",
+            description: "Pipeline DevOps complet pour une application Spring Boot & Angular, incluant l'intégration continue avec Jenkins, tests automatisés, analyse de code (SonarQube, JaCoCo), déploiement via Docker, et monitoring avec Prometheus & Grafana.",
+            technologies: ["Jenkins", "Docker", "SonarQube", "JaCoCo", "Prometheus", "Grafana", "Spring Boot", "Angular"],
+            features: [
+              "CI/CD automatisé avec Jenkins",
+              "Analyse de code et couverture de tests",
+              "Conteneurisation Docker",
+              "Monitoring temps réel",
+              "Déploiement automatisé",
+              "Alertes et métriques"
+            ]
+          },
+          {
+            title: "UniMindCare - Platform for Student Mental Health",
+            category: "Full Stack Web + Machine Learning",
+            description: "Plateforme innovante conçue pour révolutionner le support en santé mentale pour les étudiants universitaires. Système de détection précoce du stress et de l'anxiété avec recommandations personnalisées basées sur l'IA.",
+            technologies: ["React", "Node.js", "MongoDB", "Machine Learning", "Jenkins", "Docker"],
+            features: [
+              "Détection d'émotions par IA",
+              "Chatbot de support psychologique",
+              "Tableau de bord de bien-être",
+              "Recommandations personnalisées",
+              "Suivi de l'évolution mentale",
+              "Ressources et conseils"
+            ],
+            githubUrl: "https://github.com/Taha-Yassine-Hadded/UniMindCare-PI",
+            liveUrl: "https://fluffy-ganache-bbac91.netlify.app/login",
+            demoUrl: "https://www.youtube.com/watch?v=INXtK6vuf2c"
+          },
+          {
+            title: "AI Student Well-being Platform (Laravel Backend)",
+            category: "Full Stack Web + AI",
+            description: "Plateforme web construite avec Laravel pour étudiants et enseignants, conçue pour surveiller la santé mentale des étudiants en utilisant un modèle de prédiction du stress basé sur l'IA. Le système inclut l'analyse de poses de yoga avec Computer Vision, une section blog bien-être, un module de nutrition personnalisé et une authentification sécurisée.",
+            technologies: ["Laravel", "Python AI", "OpenCV", "MySQL", "Computer Vision"],
+            features: [
+              "Prédiction du stress par IA",
+              "Analyse de poses de yoga (OpenCV)",
+              "Blog bien-être",
+              "Nutrition personnalisée",
+              "Authentification sécurisée",
+              "Dashboard enseignant/étudiant"
+            ],
+            githubUrl: "https://github.com/Houssine2001/SmartHealth_Laravel"
+          }
+        ]
+      };
+
+      // ==================== FONCTION: CONSTRUCTION DU CONTEXTE DÉTAILLÉ ====================
+      function buildSystemContext() {
+        const experiencesList = PORTFOLIO_DATA.experiences.map(exp => 
+          `- ${exp.title} chez ${exp.company} (${exp.period}): ${exp.description}`
+        ).join('\\n');
+        
+        const certificationsList = PORTFOLIO_DATA.certifications.map(cert => 
+          `- ${cert.title} (${cert.issuer}, ${cert.date})`
+        ).join('\\n');
+        
+        const projectsList = PORTFOLIO_DATA.projects.map(proj => 
+          `- ${proj.title}: ${proj.description.substring(0, 150)}... [${proj.technologies.slice(0,4).join(', ')}]`
+        ).join('\\n');
+        
+        return `Tu es l'assistant virtuel de ${PORTFOLIO_DATA.profile.name}, ${PORTFOLIO_DATA.profile.title}.
+
+RÈGLES IMPORTANTES:
+- TOUJOURS répondre en FRANÇAIS
+- Être précis et informatif (donner des détails concrets)
+- Utiliser des émojis pertinents
+- Fournir des liens vers projets/certifications quand demandé
+- Quand on demande "tous les projets", lister LES 8 PROJETS COMPLETS
+- Quand on demande les expériences, lister LES 7 EXPÉRIENCES COMPLÈTES
+- Quand on demande les compétences, lister TOUTES les catégories (Frontend, Backend, Mobile, DevOps, AI, IoT, Tools)
+
+PROFIL COMPLET:
+${PORTFOLIO_DATA.profile.description}
+Formation: ${PORTFOLIO_DATA.profile.education}
+Email: ${PORTFOLIO_DATA.profile.email}
+Téléphone: ${PORTFOLIO_DATA.profile.phone}
+
+COMPÉTENCES COMPLÈTES:
+- Frontend (${PORTFOLIO_DATA.skills.frontend.length} techs): ${PORTFOLIO_DATA.skills.frontend.join(', ')}
+- Backend (${PORTFOLIO_DATA.skills.backend.length} techs): ${PORTFOLIO_DATA.skills.backend.join(', ')}
+- Mobile (${PORTFOLIO_DATA.skills.mobile.length} techs): ${PORTFOLIO_DATA.skills.mobile.join(', ')}
+- DevOps (${PORTFOLIO_DATA.skills.devops.length} tools): ${PORTFOLIO_DATA.skills.devops.join(', ')}
+- IA/ML (${PORTFOLIO_DATA.skills.ai.length} tools): ${PORTFOLIO_DATA.skills.ai.join(', ')}
+- IoT: ${PORTFOLIO_DATA.skills.iot.join(', ')}
+- Tools: ${PORTFOLIO_DATA.skills.tools.join(', ')}
+
+EXPÉRIENCES PROFESSIONNELLES (${PORTFOLIO_DATA.experiences.length} postes):
+${experiencesList}
+
+CERTIFICATIONS (${PORTFOLIO_DATA.certifications.length} certifications):
+${certificationsList}
+
+PROJETS RÉALISÉS (${PORTFOLIO_DATA.projects.length} projets):
+${projectsList}
+
+EXPERTISE SPÉCIALE:
+- Développement Full Stack (MERN, Laravel, Django, Symfony)
+- Applications mobiles (Java Android, Flutter, FlutterFlow)
+- Intelligence Artificielle (ML, NLP, Computer Vision, Generative AI)
+- DevOps & CI/CD (Docker, Jenkins, Kubernetes, Monitoring)
+- IoT & Embedded Systems (Arduino, Raspberry Pi)
+
+Réponds de manière professionnelle, détaillée et amicale en mettant en valeur l'expertise technique de Houssine.`;
+      }
+
+      // ==================== FONCTION: APPEL API GITHUB MODELS ====================
+      async function callGitHubModelsAPI(userMessage, conversationHistory) {
+        try {
+          const messages = [
+            { role: "system", content: buildSystemContext() },
+            ...conversationHistory,
+            { role: "user", content: userMessage }
+          ];
+
+          const response = await fetch(API_ENDPOINT, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${GITHUB_TOKEN}`
+            },
+            body: JSON.stringify({
+              messages: messages,
+              model: MODEL_NAME,
+              temperature: 0.7,
+              max_tokens: 800,
+              top_p: 0.95
+            })
+          });
+
+          if (!response.ok) {
+            return { success: false };
+          }
+
+          const data = await response.json();
+          return { success: true, response: data.choices[0].message.content };
+          
+        } catch (error) {
+          return { success: false };
+        }
+      }
+
+      // ==================== FONCTION: RÉPONSE NLP AMÉLIORÉE (FALLBACK) ====================
+      function generateNLPResponse(userMessage) {
+        const msg = userMessage.toLowerCase();
+        
+        // Intent: Salutation
+        if (msg.match(/^(bonjour|salut|hello|hi|hey|bonsoir|coucou)/i)) {
+          return `👋 Bonjour ! Je suis l'assistant virtuel de **Houssine Ben Arous**, ${PORTFOLIO_DATA.profile.title}.\\n\\nJe peux vous renseigner sur ses **${PORTFOLIO_DATA.projects.length} projets**, **${Object.values(PORTFOLIO_DATA.skills).flat().length}+ compétences techniques**, **${PORTFOLIO_DATA.experiences.length} expériences professionnelles** et **${PORTFOLIO_DATA.certifications.length} certifications**.\\n\\n💡 Posez-moi des questions spécifiques pour des réponses détaillées !`;
+        }
+        
+        // Intent: Tous les projets (réponse COMPLÈTE)
+        if (msg.includes('projet') || msg.includes('portfolio') || msg.includes('réalisation') || msg.includes('travaux')) {
+          let response = `🚀 **TOUS LES PROJETS DE HOUSSINE** (${PORTFOLIO_DATA.projects.length} projets réalisés):\\n\\n`;
+          
+          PORTFOLIO_DATA.projects.forEach((proj, i) => {
+            response += `**${i+1}. ${proj.title}** [${proj.category}]\\n`;
+            response += `📝 ${proj.description.substring(0, 200)}${proj.description.length > 200 ? '...' : ''}\\n`;
+            response += `💻 **Technologies**: ${proj.technologies.join(', ')}\\n`;
+            
+            if (proj.features && proj.features.length > 0) {
+              response += `✨ **Fonctionnalités clés**: ${proj.features.slice(0, 3).join(', ')}\\n`;
+            }
+            
+            if (proj.liveUrl) response += `🔗 [Démo Live](${proj.liveUrl})\\n`;
+            if (proj.githubUrl) response += `📂 [GitHub](${proj.githubUrl})\\n`;
+            if (proj.demoUrl) response += `🎥 [Vidéo Démo](${proj.demoUrl})\\n`;
+            response += '\\n';
+          });
+          
+          return response + "💡 **Demandez-moi des détails sur un projet spécifique !**";
+        }
+        
+        // Intent: Compétences COMPLÈTES
+        if (msg.includes('compétence') || msg.includes('technologie') || msg.includes('stack') || msg.includes('outil') || msg.includes('skill')) {
+          return `💻 **COMPÉTENCES TECHNIQUES COMPLÈTES DE HOUSSINE**\\n\\n` +
+                 `🎨 **Frontend** (${PORTFOLIO_DATA.skills.frontend.length} technologies):\\n${PORTFOLIO_DATA.skills.frontend.join(' • ')}\\n\\n` +
+                 `⚙️ **Backend** (${PORTFOLIO_DATA.skills.backend.length} frameworks):\\n${PORTFOLIO_DATA.skills.backend.join(' • ')}\\n\\n` +
+                 `� **Databases** (${PORTFOLIO_DATA.skills.database.length} systèmes):\\n${PORTFOLIO_DATA.skills.database.join(' • ')}\\n\\n` +
+                 `�📱 **Mobile** (${PORTFOLIO_DATA.skills.mobile.length} technologies):\\n${PORTFOLIO_DATA.skills.mobile.join(' • ')}\\n\\n` +
+                 `🚀 **DevOps & CI/CD** (${PORTFOLIO_DATA.skills.devops.length} outils):\\n${PORTFOLIO_DATA.skills.devops.join(' • ')}\\n\\n` +
+                 `🤖 **Intelligence Artificielle** (${PORTFOLIO_DATA.skills.ai.length} technologies):\\n${PORTFOLIO_DATA.skills.ai.join(' • ')}\\n\\n` +
+                 `🔌 **IoT & Embedded** (${PORTFOLIO_DATA.skills.iot.length} plateformes):\\n${PORTFOLIO_DATA.skills.iot.join(' • ')}\\n\\n` +
+                 `🛠️ **Outils & Technologies** (${PORTFOLIO_DATA.skills.tools.length} tools):\\n${PORTFOLIO_DATA.skills.tools.join(' • ')}\\n\\n` +
+                 `📊 **TOTAL**: ${Object.values(PORTFOLIO_DATA.skills).flat().length}+ technologies maîtrisées !`;
+        }
+        
+        // Intent: Toutes les expériences (réponse COMPLÈTE)
+        if (msg.includes('expérience') || msg.includes('travail') || msg.includes('stage') || msg.includes('emploi') || msg.includes('carrière')) {
+          let response = `💼 **TOUTES LES EXPÉRIENCES PROFESSIONNELLES** (${PORTFOLIO_DATA.experiences.length} postes):\\n\\n`;
+          
+          PORTFOLIO_DATA.experiences.forEach((exp, i) => {
+            response += `**${i+1}. ${exp.title}** - ${exp.company}\\n`;
+            response += `📅 **Période**: ${exp.period}\\n`;
+            response += `📝 **Description**: ${exp.description}\\n`;
+            response += `🛠️ **Technologies**: ${exp.technologies.join(', ')}\\n`;
+            
+            if (exp.achievements && exp.achievements.length > 0) {
+              response += `🏆 **Réalisations**:\\n`;
+              exp.achievements.forEach(achievement => {
+                response += `   • ${achievement}\\n`;
+              });
+            }
+            response += '\\n';
+          });
+          
+          return response + "💡 **Total**: ${PORTFOLIO_DATA.experiences.length} expériences professionnelles enrichissantes !";
+        }
+        
+        // Intent: Toutes les certifications (réponse COMPLÈTE)
+        if (msg.includes('certification') || msg.includes('diplôme') || msg.includes('formation') || msg.includes('certificat')) {
+          let response = `🎓 **TOUTES LES CERTIFICATIONS** (${PORTFOLIO_DATA.certifications.length} certifications obtenues):\\n\\n`;
+          
+          PORTFOLIO_DATA.certifications.forEach((cert, i) => {
+            response += `**${i+1}. ${cert.title}**\\n`;
+            response += `🏢 **Organisme**: ${cert.issuer}\\n`;
+            response += `📅 **Date**: ${cert.date}\\n`;
+            
+            if (cert.skills && cert.skills.length > 0) {
+              response += `💡 **Compétences acquises**: ${cert.skills.join(', ')}\\n`;
+            }
+            
+            if (cert.description) {
+              response += `📝 ${cert.description}\\n`;
+            }
+            
+            if (cert.id) {
+              response += `🆔 ID: ${cert.id}\\n`;
+            }
+            
+            response += `🔗 [Voir la certification](${cert.url})\\n\\n`;
+          });
+          
+          return response + "✅ **Ces certifications démontrent une expertise technique avancée !**";
+        }
+        
+        // Intent: Contact
+        if (msg.includes('contact') || msg.includes('email') || msg.includes('téléphone') || msg.includes('tel') || msg.includes('appel') || msg.includes('linkedin')) {
+          return `📧 **CONTACTEZ HOUSSINE BEN AROUS**:\\n\\n` +
+                 `📮 **Email**: ${PORTFOLIO_DATA.profile.email}\\n` +
+                 `📱 **Téléphone**: ${PORTFOLIO_DATA.profile.phone}\\n` +
+                 `💼 **LinkedIn**: [Profil LinkedIn](${PORTFOLIO_DATA.profile.linkedin})\\n` +
+                 `🐙 **GitHub**: [Houssine2001](${PORTFOLIO_DATA.profile.github})\\n\\n` +
+                 `💡 **N'hésitez pas à le contacter pour toute opportunité professionnelle ou question technique !**`;
+        }
+        
+        // Intent: À propos / Présentation
+        if (msg.includes('qui es') || msg.includes('qui est') || msg.includes('présent') || msg.includes('à propos') || msg.includes('profil') || msg.includes('qui ')) {
+          return `👨‍💻 **HOUSSINE BEN AROUS** - ${PORTFOLIO_DATA.profile.title}\\n\\n` +
+                 `${PORTFOLIO_DATA.profile.description}\\n\\n` +
+                 `🎓 **Formation**: ${PORTFOLIO_DATA.profile.education}\\n\\n` +
+                 `📊 **EN CHIFFRES**:\\n` +
+                 `• 🚀 **${PORTFOLIO_DATA.projects.length} projets** réalisés (Full Stack, Mobile, AI, DevOps)\\n` +
+                 `• 💼 **${PORTFOLIO_DATA.experiences.length} expériences** professionnelles (stages, freelance, CDI)\\n` +
+                 `• 🎓 **${PORTFOLIO_DATA.certifications.length} certifications** obtenues (Google Cloud, AWS, Cisco, Hashgraph)\\n` +
+                 `• 💻 **${Object.values(PORTFOLIO_DATA.skills).flat().length}+ technologies** maîtrisées\\n\\n` +
+                 `🌟 **EXPERTISES CLÉS**:\\n` +
+                 `• Full Stack Development (MERN, Laravel, Django, Symfony)\\n` +
+                 `• Mobile Development (Java Android, Flutter)\\n` +
+                 `• Intelligence Artificielle & Machine Learning\\n` +
+                 `• DevOps & CI/CD (Docker, Jenkins, Kubernetes)\\n` +
+                 `• IoT & Embedded Systems (Arduino, Raspberry Pi)`;
+        }
+        
+        // Intent: Spécialité IA/Machine Learning
+        if (msg.includes('ia') || msg.includes('intelligence artificielle') || msg.includes('machine learning') || msg.includes('ml') || msg.includes('ai')) {
+          return `🤖 **EXPERTISE EN INTELLIGENCE ARTIFICIELLE**\\n\\n` +
+                 `**Technologies maîtrisées**: ${PORTFOLIO_DATA.skills.ai.join(', ')}\\n\\n` +
+                 `**Projets IA réalisés**:\\n` +
+                 `• AI Educational Platform (Transformers, NLP, Whisper)\\n` +
+                 `• Mental Health Platform avec ML (détection émotions)\\n` +
+                 `• Stress Prediction avec Python AI\\n` +
+                 `• Yoga Pose Analysis avec OpenCV\\n` +
+                 `• Face Recognition System (ML + OpenCV)\\n\\n` +
+                 `**Certifications IA**:\\n` +
+                 `• Google Vertex AI Search for Retail (Nov 2024)\\n\\n` +
+                 `💡 Houssine combine l'IA avec le développement Full Stack pour créer des solutions innovantes !`;
+        }
+        
+        // Intent: Mobile Development
+        if (msg.includes('mobile') || msg.includes('android') || msg.includes('flutter') || msg.includes('application mobile')) {
+          return `📱 **EXPERTISE EN DÉVELOPPEMENT MOBILE**\\n\\n` +
+                 `**Technologies**: ${PORTFOLIO_DATA.skills.mobile.join(', ')}\\n\\n` +
+                 `**Applications mobiles développées**:\\n` +
+                 `• FlexFlowGym Mobile (FlutterFlow + Firebase)\\n` +
+                 `• Employee Access Control avec Face Recognition (Flutter)\\n` +
+                 `• Smart Farm Mobile App (Java Android)\\n` +
+                 `• Smart Irrigation Control (Java + Firebase)\\n\\n` +
+                 `**Compétences**:\\n` +
+                 `• Développement natif Android (Java, Android SDK)\\n` +
+                 `• Cross-platform avec Flutter & FlutterFlow\\n` +
+                 `• Intégration Firebase (Auth, Firestore, Cloud)\\n` +
+                 `• REST API integration\\n` +
+                 `• SQLite & stockage local\\n` +
+                 `• UI/UX mobile moderne`;
+        }
+        
+        // Intent: DevOps
+        if (msg.includes('devops') || msg.includes('docker') || msg.includes('jenkins') || msg.includes('ci/cd') || msg.includes('pipeline')) {
+          return `� **EXPERTISE DEVOPS & CI/CD**\\n\\n` +
+                 `**Technologies**: ${PORTFOLIO_DATA.skills.devops.join(', ')}\\n\\n` +
+                 `**Projet principal**: Pipeline DevOps Full Stack\\n` +
+                 `• CI/CD automatisé avec Jenkins\\n` +
+                 `• Conteneurisation Docker\\n` +
+                 `• Analyse de code (SonarQube, JaCoCo)\\n` +
+                 `• Monitoring (Prometheus, Grafana)\\n` +
+                 `• Tests automatisés\\n` +
+                 `• Déploiement automatisé\\n\\n` +
+                 `**Expérience**: Intégration DevOps dans plusieurs projets (ParcTracker SOFRECOM, Educational Platform)`;
+        }
+        
+        // Réponse par défaut améliorée
+        return `🤔 **JE PEUX VOUS AIDER AVEC**:\\n\\n` +
+               `• 🚀 **Les ${PORTFOLIO_DATA.projects.length} projets** de Houssine (Full Stack, Mobile, AI, DevOps)\\n` +
+               `• 💻 **Ses ${Object.values(PORTFOLIO_DATA.skills).flat().length}+ compétences** techniques détaillées\\n` +
+               `• 💼 **Ses ${PORTFOLIO_DATA.experiences.length} expériences** professionnelles complètes\\n` +
+               `• 🎓 **Ses ${PORTFOLIO_DATA.certifications.length} certifications** (Google, AWS, Cisco, Hashgraph)\\n` +
+               `• 📧 **Ses coordonnées** pour le contacter\\n` +
+               `• 👨‍💻 **Son profil** et expertise\\n\\n` +
+               `💡 **Exemples de questions**:\\n` +
+               `"Quels sont tous les projets ?" • "Quelles compétences techniques ?" • "Parle-moi de son expérience" • "Ses certifications ?" • "Comment le contacter ?"\\n\\n` +
+               `Que souhaitez-vous savoir ?`;
+      }
+
+      // ==================== FONCTION PRINCIPALE: CHAT ====================
+      async function chat(userMessage, conversationHistory = []) {
+        const apiResult = await callGitHubModelsAPI(userMessage, conversationHistory);
+        
+        if (apiResult.success) {
+          return apiResult.response;
+        }
+        
+        console.log('🔄 Fallback NLP activé');
+        return generateNLPResponse(userMessage);
+      }
+
+      // ==================== CLASSE: PORTFOLIO CHATBOT UI ====================
+      class PortfolioChatbot {
+        constructor() {
+          this.conversationHistory = [];
+          this.isOpen = false;
+          this.isTyping = false;
+          this.init();
+        }
+
+        init() {
+          this.createChatbotUI();
+          this.attachEventListeners();
+          this.showWelcomeMessage();
+        }
+
+        createChatbotUI() {
+          const chatbotHTML = `
+            <div class="chatbot-toggle" id="chatbotToggle">
+              <i class="uil uil-comments-alt"></i>
+              <span class="chatbot-badge">💬</span>
+            </div>
+
+            <div class="chatbot-container" id="chatbotContainer">
+              <div class="chatbot-header">
+                <div class="chatbot-header-info">
+                  <div class="chatbot-avatar">
+                    <i class="uil uil-robot"></i>
+                  </div>
+                  <div class="chatbot-title">
+                    <h3>Assistant Houssine</h3>
+                    <span class="chatbot-status">
+                      <span class="status-dot"></span>
+                      En ligne
+                    </span>
+                  </div>
+                </div>
+                <div class="chatbot-actions">
+                  <button class="chatbot-action-btn" id="clearChat" title="Effacer">
+                    <i class="uil uil-trash-alt"></i>
+                  </button>
+                  <button class="chatbot-action-btn" id="closeChatbot" title="Fermer">
+                    <i class="uil uil-times"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="chatbot-messages" id="chatbotMessages"></div>
+
+              <div class="chatbot-suggestions" id="chatbotSuggestions"></div>
+
+              <div class="chatbot-input-container">
+                <textarea 
+                  id="chatbotInput" 
+                  class="chatbot-input" 
+                  placeholder="Posez votre question..." 
+                  rows="1"
+                ></textarea>
+                <button class="chatbot-send" id="chatbotSend">
+                  <i class="uil uil-message"></i>
+                </button>
+              </div>
+            </div>
+          `;
+
+          document.body.insertAdjacentHTML('beforeend', chatbotHTML);
+        }
+
+        attachEventListeners() {
+          const toggle = document.getElementById('chatbotToggle');
+          const close = document.getElementById('closeChatbot');
+          const send = document.getElementById('chatbotSend');
+          const input = document.getElementById('chatbotInput');
+          const clear = document.getElementById('clearChat');
+
+          toggle.addEventListener('click', () => this.toggleChat());
+          close.addEventListener('click', () => this.closeChat());
+          send.addEventListener('click', () => this.sendMessage());
+          clear.addEventListener('click', () => this.clearConversation());
+
+          input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+              e.preventDefault();
+              this.sendMessage();
+            }
+          });
+
+          input.addEventListener('input', () => {
+            input.style.height = 'auto';
+            input.style.height = Math.min(input.scrollHeight, 120) + 'px';
+          });
+        }
+
+        toggleChat() {
+          const container = document.getElementById('chatbotContainer');
+          const toggle = document.getElementById('chatbotToggle');
+
+          if (this.isOpen) {
+            container.classList.remove('active');
+            toggle.classList.remove('hidden');
+            this.isOpen = false;
+          } else {
+            container.classList.add('active');
+            toggle.classList.add('hidden');
+            this.isOpen = true;
+            document.getElementById('chatbotInput').focus();
+          }
+        }
+
+        closeChat() {
+          document.getElementById('chatbotContainer').classList.remove('active');
+          document.getElementById('chatbotToggle').classList.remove('hidden');
+          this.isOpen = false;
+        }
+
+        showWelcomeMessage() {
+          const welcomeMsg = `👋 Bonjour ! Je suis l'assistant virtuel de **Houssine Ben Arous**.\\n\\nJe peux vous renseigner sur ses projets, compétences, expériences et certifications.\\n\\n`;
+          
+          this.addMessage(welcomeMsg, 'bot');
+          this.showSuggestions();
+        }
+
+        showSuggestions() {
+          const suggestionsContainer = document.getElementById('chatbotSuggestions');
+          const suggestions = [
+            "Quels sont les projets de Houssine ?",
+            "Quelles sont ses compétences techniques ?",
+            "Parle-moi de son expérience",
+            "Comment le contacter ?"
+          ];
+
+          suggestionsContainer.innerHTML = suggestions
+            .map(s => `<button class="suggestion-btn">${s}</button>`)
+            .join('');
+
+          suggestionsContainer.querySelectorAll('.suggestion-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              document.getElementById('chatbotInput').value = btn.textContent;
+              this.sendMessage();
+            });
+          });
+        }
+
+        async sendMessage() {
+          const input = document.getElementById('chatbotInput');
+          const message = input.value.trim();
+
+          if (!message || this.isTyping) return;
+
+          this.addMessage(message, 'user');
+          this.conversationHistory.push({ role: 'user', content: message });
+
+          input.value = '';
+          input.style.height = 'auto';
+          document.getElementById('chatbotSuggestions').innerHTML = '';
+
+          this.showTypingIndicator();
+          this.isTyping = true;
+
+          try {
+            const response = await chat(message, this.conversationHistory);
+            
+            this.hideTypingIndicator();
+            this.addMessage(response, 'bot');
+            this.conversationHistory.push({ role: 'assistant', content: response });
+            this.isTyping = false;
+          } catch (error) {
+            this.hideTypingIndicator();
+            this.addMessage("❌ Désolé, une erreur est survenue.", 'bot');
+            this.isTyping = false;
+          }
+        }
+
+        addMessage(text, sender) {
+          const messagesContainer = document.getElementById('chatbotMessages');
+          const messageDiv = document.createElement('div');
+          messageDiv.className = `chatbot-message ${sender}-message`;
+          
+          const formattedText = this.formatMessage(text);
+          messageDiv.innerHTML = formattedText;
+          
+          messagesContainer.appendChild(messageDiv);
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        formatMessage(text) {
+          return text
+            .replace(/\\n/g, '<br>')
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+            .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
+        }
+
+        showTypingIndicator() {
+          const messagesContainer = document.getElementById('chatbotMessages');
+          const typingDiv = document.createElement('div');
+          typingDiv.className = 'chatbot-message bot-message typing-indicator';
+          typingDiv.id = 'typingIndicator';
+          typingDiv.innerHTML = `
+            <div class="typing-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          `;
+          messagesContainer.appendChild(typingDiv);
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        hideTypingIndicator() {
+          const indicator = document.getElementById('typingIndicator');
+          if (indicator) indicator.remove();
+        }
+
+        clearConversation() {
+          document.getElementById('chatbotMessages').innerHTML = '';
+          this.conversationHistory = [];
+          this.showWelcomeMessage();
+        }
+      }
+
+      // ==================== INITIALISATION ====================
+      window.PortfolioChatbot = new PortfolioChatbot();
+
+    })();
+    </script>
+
+    <!-- ========== YOUTUBE VIDEO MODAL ========== -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <span class="video-modal-close">&times;</span>
+            <div class="video-modal-body">
+                <iframe id="youtubePlayer" 
+                        width="100%" 
+                        height="100%" 
+                        src="" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen
+                        referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== VIDEO MODAL SCRIPT ========== -->
+    <script>
+        // Video Modal Functionality
+        const videoModal = document.getElementById('videoModal');
+        const youtubePlayer = document.getElementById('youtubePlayer');
+        const closeModal = document.querySelector('.video-modal-close');
+        const videoButtons = document.querySelectorAll('.video-btn');
+
+        // Open modal when clicking video button
+        videoButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const videoId = this.getAttribute('data-video-id');
+                
+                // Set YouTube iframe source - Simple format like your friend's code
+                youtubePlayer.src = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
+                
+                // Show modal
+                videoModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close modal when clicking X
+        closeModal.addEventListener('click', closeVideoModal);
+
+        // Close modal when clicking outside
+        videoModal.addEventListener('click', function(e) {
+            if (e.target === videoModal) {
+                closeVideoModal();
+            }
+        });
+
+        // Close modal function
+        function closeVideoModal() {
+            videoModal.style.display = 'none';
+            youtubePlayer.src = ''; // Stop video
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && videoModal.style.display === 'flex') {
+                closeVideoModal();
+            }
         });
     </script>
 </body>
