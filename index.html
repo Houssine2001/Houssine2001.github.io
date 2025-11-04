@@ -41,6 +41,9 @@
     <link rel="preload" href="assets/css/style.css" as="style">
     <link rel="preload" href="assets/js/main.js" as="script">
 
+    <!-- Configuration Portfolio (token GitHub) -->
+    <script src="assets/config.js"></script>
+
     <title>Houssine Ben Arous | Full Stack Developer Portfolio</title>
 </head>
 <body>
@@ -1080,7 +1083,8 @@
       'use strict';
 
       // ==================== CONFIGURATION API ====================
-      const GITHUB_TOKEN = "GITHUB_TOKEN_REMOVED";
+      // Token chargé depuis config externe (voir assets/config.js)
+      const GITHUB_TOKEN = window.PORTFOLIO_CONFIG?.GITHUB_TOKEN || '';
       const API_ENDPOINT = "https://models.inference.ai.azure.com/chat/completions";
       const MODEL_NAME = "gpt-4o-mini";
 
